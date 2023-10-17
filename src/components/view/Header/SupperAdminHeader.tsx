@@ -1,6 +1,9 @@
-import Navbar from "@/components/ui/Navbar/Navbar";
+import React from "react";
+import Navbar from "../../ui/Navbar/Navbar";
 
-export default function Home() {
+type SupperAdminHeaderProps = {};
+
+const SupperAdminHeader: React.FC<SupperAdminHeaderProps> = () => {
   const items = [
     { key: "0", href: "/", label: "Home" },
     {
@@ -21,4 +24,5 @@ export default function Home() {
     },
   ];
   return <Navbar items={items} />;
-}
+};
+export default SupperAdminHeader;

@@ -1,6 +1,11 @@
-import Navbar from "@/components/ui/Navbar/Navbar";
+import SideBar from "@/components/ui/SideBar/SideBar";
+import React from "react";
 
-export default function Home() {
+type UserSideBarProps = {
+  children?: React.ReactNode;
+};
+
+const UserSideBar: React.FC<UserSideBarProps> = ({ children }) => {
   const items = [
     { key: "0", href: "/", label: "Home" },
     {
@@ -20,5 +25,6 @@ export default function Home() {
       label: "Register",
     },
   ];
-  return <Navbar items={items} />;
-}
+  return <SideBar items={items}>{children}</SideBar>;
+};
+export default UserSideBar;
