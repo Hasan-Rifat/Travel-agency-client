@@ -11,17 +11,6 @@ const UserHeader: React.FC<UserHeaderProps> = () => {
       href: "/service",
       label: "Service",
     },
-    {
-      key: "2",
-      href: "/login",
-      label: "Login",
-    },
-
-    {
-      key: "3",
-      href: "/register",
-      label: "Register",
-    },
   ];
   return <Navbar items={items} />;
 };

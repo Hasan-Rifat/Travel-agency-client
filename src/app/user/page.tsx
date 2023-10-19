@@ -3,6 +3,6 @@ import React from "react";
 type pageProps = {};
 
 const page: React.FC<pageProps> = () => {
-  return <div>admin</div>;
+  return <div>user dashboard</div>;
 };
 export default page;

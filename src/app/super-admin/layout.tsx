@@ -1,10 +1,9 @@
 "use client";
-import AdminHeader from "@/components/view/Header/AdminHeader";
-import AdminSideBar from "@/components/view/SideBar/AdminSideBar";
+import SupperAdminHeader from "@/components/view/Header/SupperAdminHeader";
+import SupperAdminSideBar from "@/components/view/SideBar/SupperAdminSideBar";
 import { useAppSelector } from "@/redux/hooks";
-import { getUserInfo } from "@/services/auth.service";
+import { getUserInfo, isLoggedIn } from "@/services/auth.service";
 import { Row, Space, Spin } from "antd";
-import { JwtPayload } from "jwt-decode";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { useRouter } from "next/navigation";
@@ -17,12 +16,11 @@ const poppins = Poppins({
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { role } = getUserInfo() as any;
-
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    if (role !== "admin") {
+    if (role !== "superAdmin") {
       router.push("/login");
     }
     setIsLoading(true);
@@ -46,8 +44,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <main className={poppins.className}>
-        <AdminHeader />
-        <AdminSideBar>{children}</AdminSideBar>
+        <SupperAdminHeader />
+        <SupperAdminSideBar>{children}</SupperAdminSideBar>
       </main>
     </>
   );

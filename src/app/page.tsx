@@ -1,3 +1,5 @@
+import Banner from "@/components/ui/Home/Banner";
+import Upcoming from "@/components/ui/Home/Upcomming";
 import Navbar from "@/components/ui/Navbar/Navbar";
 
 export default function Home() {
@@ -8,17 +10,13 @@ export default function Home() {
       href: "/service",
       label: "Service",
     },
-    {
-      key: "2",
-      href: "/login",
-      label: "Login",
-    },
-
-    {
-      key: "3",
-      href: "/register",
-      label: "Register",
-    },
   ];
-  return <Navbar items={items} />;
+
+  return (
+    <>
+      <Navbar items={items} />
+      <Banner />
+      <Upcoming />
+    </>
+  );
 }
