@@ -13,8 +13,10 @@ const { Header, Content, Footer } = Layout;
 
 const Navbar = ({
   items,
+  hasSider,
 }: {
   items: { key: string; label: string; href: string }[];
+  hasSider?: boolean;
 }) => {
   const [open, setOpen] = useState(false);
   const { role } = getUserInfo() as any;
@@ -36,18 +38,26 @@ const Navbar = ({
   };
   return (
     <Layout className="layout bg-[#001529]">
-      <div className="container mx-auto">
-        <Header className="flex justify-between items-center ">
-          <Content className="flex gap-4">
+      <Header className="mx-auto container flex items-center  ">
+        <div className="flex items-center gap-5 w-full">
+          {hasSider && (
             <Button
               type="primary"
               className="lg:hidden"
-              onClick={() => dispatch(showSidebarDrawer())}
+              onClick={() => {
+                dispatch(showSidebarDrawer());
+              }}
             >
               <MenuOutlined />
             </Button>
+          )}
+          <Content>
             <Link href="/">
-              <Title level={3} className="text-white mb-0">
+              <Title
+                className={`m-0 text-white ${
+                  hasSider && "text-center lg:text-left"
+                }`}
+              >
                 Travel agency
               </Title>
             </Link>
@@ -57,84 +67,59 @@ const Navbar = ({
             disabledOverflow
             theme="dark"
             mode="horizontal"
-            selectedKeys={[items.find((item) => item.href === pathName)?.key!]}
+            selectedKeys={[pathName]}
           >
-            {items.map((item) => (
-              <Menu.Item key={item.key}>
-                <Link className="text-white" href={item.href}>
-                  {item.label}
-                </Link>
+            {items?.map((item) => (
+              <Menu.Item key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
               </Menu.Item>
             ))}
 
             {role ? (
-              <button
-                className="bg-[#1571f2] text-white px-6 py-3 rounded-md border-none"
+              <Button
+                type="primary"
                 onClick={() => {
                   signOut();
                 }}
               >
                 Sign Out
-              </button>
+              </Button>
             ) : (
-              <button
-                className="bg-[#1571f2] text-white px-6 py-3 rounded-md border-none"
+              <Button
+                type="primary"
                 onClick={() => {
                   router.push("/login");
                 }}
               >
                 Sign In / register
-              </button>
+              </Button>
             )}
           </Menu>
-          <Button onClick={showDrawer} type="primary" className="lg:hidden">
+
+          <Button type="primary" className="lg:hidden" onClick={showDrawer}>
             <MenuOutlined />
           </Button>
           <Drawer
-            className="lg:hidden block "
             title="Menu"
             placement="right"
             onClose={onClose}
-            open={open}
+            visible={open}
           >
             <Menu
-              disabledOverflow
               theme="light"
               mode="vertical"
-              selectedKeys={[
-                items.find((item) => item.href === pathName)?.key!,
-              ]}
+              selectedKeys={[pathName]}
+              style={{ borderRight: 0 }}
             >
-              {items.map((item) => (
-                <Menu.Item key={item.key}>
-                  <Link className="text-blue-700" href={item.href}>
-                    {item.label}
-                  </Link>
+              {items?.map((item) => (
+                <Menu.Item key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
                 </Menu.Item>
               ))}
-              {role ? (
-                <button
-                  className="bg-[#1571f2] text-white px-6 py-3 rounded-md border-none"
-                  onClick={() => {
-                    signOut();
-                  }}
-                >
-                  Sign Out
-                </button>
-              ) : (
-                <button
-                  className="bg-[#1571f2] text-white px-6 py-3 rounded-md border-none"
-                  onClick={() => {
-                    router.push("/login");
-                  }}
-                >
-                  Sign In / register
-                </button>
-              )}
             </Menu>
           </Drawer>
-        </Header>
-      </div>
+        </div>
+      </Header>
     </Layout>
   );
 };

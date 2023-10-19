@@ -23,6 +23,6 @@ const SupperAdminHeader: React.FC<SupperAdminHeaderProps> = () => {
       label: "Register",
     },
   ];
-  return <Navbar items={items} />;
+  return <Navbar items={items} hasSider />;
 };
 export default SupperAdminHeader;

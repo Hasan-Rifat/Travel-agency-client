@@ -23,6 +23,6 @@ const AdminHeader: React.FC<AdminHeaderProps> = () => {
       label: "Register",
     },
   ];
-  return <Navbar items={items} />;
+  return <Navbar items={items} hasSider />;
 };
 export default AdminHeader;

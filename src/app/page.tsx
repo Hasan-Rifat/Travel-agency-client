@@ -1,6 +1,7 @@
 import Banner from "@/components/ui/Home/Banner";
 import Upcoming from "@/components/ui/Home/Upcomming";
 import Navbar from "@/components/ui/Navbar/Navbar";
+import AllServices from "@/components/ui/service/AllServices";
 
 export default function Home() {
   const items = [
@@ -16,6 +17,7 @@ export default function Home() {
     <>
       <Navbar items={items} />
       <Banner />
+      <AllServices />
       <Upcoming />
     </>
   );

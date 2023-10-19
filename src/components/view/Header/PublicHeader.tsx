@@ -12,6 +12,6 @@ const PublicHeader: React.FC<PublicHeaderProps> = () => {
       label: "Service",
     },
   ];
-  return <Navbar items={items} />;
+  return <Navbar items={items} hasSider />;
 };
 export default PublicHeader;

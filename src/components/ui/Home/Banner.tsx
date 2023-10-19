@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel, Col, Row } from "antd";
-import bg from "@/assist/banner-1.jpg";
-import about1 from "@/assist/about-1.jpg";
+import bg from "@/assets/banner-1.jpg";
+import about1 from "@/assets/about-1.jpg";
 import Image from "next/image";
 
 const Banner: React.FC = () => (

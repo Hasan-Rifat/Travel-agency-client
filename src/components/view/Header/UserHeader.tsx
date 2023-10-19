@@ -12,6 +12,6 @@ const UserHeader: React.FC<UserHeaderProps> = () => {
       label: "Service",
     },
   ];
-  return <Navbar items={items} />;
+  return <Navbar items={items} hasSider />;
 };
 export default UserHeader;
