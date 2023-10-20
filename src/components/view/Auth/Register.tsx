@@ -25,7 +25,7 @@ const RegisterForm = () => {
       const res = await register({ email, password, name, url, role }).unwrap();
       console.log(res);
       if (res) {
-        router.push("/dashboard");
+        router.push("/login");
         message.success("User create in successfully!");
       }
     } catch (err: any) {
