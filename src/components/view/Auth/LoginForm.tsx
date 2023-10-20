@@ -9,11 +9,36 @@ import { useAppDispatch } from "@/redux/hooks";
 import { setToLocalStorage } from "@/utils/local-storage";
 import { getUser } from "@/redux/api/user/userSlice";
 import { userKey } from "@/constants/storageKey";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const LoginForm = () => {
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, { isLoading, data, error }] = useLoginMutation();
   const router = useRouter();
   const dispatch = useAppDispatch();
+  useEffect(() => {
+    // Handle login state here with isSuccess, isError, error, isLoading
+
+    if (error) {
+      if ("message" in error && error.message) {
+        toast.error(error.message, {
+          id: "login-error",
+        });
+      }
+    }
+
+    if (isLoading) {
+      toast.loading("Loading...", {
+        id: "login-loading",
+      });
+    }
+
+    return () => {
+      toast.dismiss("login-success");
+      toast.dismiss("login-error");
+      toast.dismiss("login-loading");
+    };
+  }, [data, error, isLoading]);
 
   const onFinish = async (values: { email: string; password: string }) => {
     try {

@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { ReactNode } from "react";
 import { IconType } from "react-icons";
 
 export interface IMeta {
@@ -23,11 +24,27 @@ export type IGenericErrorMessage = {
   message: string;
 };
 
-export type UpcomingItems = {
+export type Features = {
   key: string;
   image: StaticImageData;
   icon: IconType;
   title: string;
+};
+
+export type UpcomingItems = {
+  id: string;
+  name: string;
+  location: string;
+  categoryId: string;
+  category: Category;
+  price: number;
+  description: string;
+  availability: boolean;
+  url: StaticImageData;
+  public_id: string;
+  reviews: Reviews[];
+  createdAt: ReactNode;
+  updatedAt: ReactNode;
 };
 
 type Reviews = {
@@ -40,17 +57,25 @@ type Reviews = {
   updatedAt: string; // Use string or Date based on your preference and data source
 };
 
+type Category = {
+  id: string;
+  name: string;
+  createdAt: string;
+  updatedAt: string; // Use string or Date based on your preference and data
+};
+
 export type IService = {
   id: string;
   name: string;
   location: string;
   categoryId: string;
+  category: Category;
   price: number;
-  description: string | null;
-  availability: boolean | null;
-  url: string | null;
+  description: string;
+  availability: boolean;
+  url: string;
   public_id: string;
   reviews: Reviews[];
-  createdAt: Date;
+  createdAt: ReactNode;
   updatedAt: Date;
 };

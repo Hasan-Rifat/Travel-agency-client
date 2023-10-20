@@ -36,6 +36,7 @@ const Navbar = ({
     localStorage.clear();
     router.push("/login");
   };
+
   return (
     <Layout className="layout bg-[#001529]">
       <Header className="mx-auto container flex items-center  ">
@@ -76,23 +77,39 @@ const Navbar = ({
             ))}
 
             {role ? (
-              <Button
-                type="primary"
-                onClick={() => {
-                  signOut();
-                }}
-              >
-                Sign Out
-              </Button>
+              <Menu.Item className="">
+                <Button
+                  type="primary"
+                  className="mr-2"
+                  onClick={() => {
+                    signOut();
+                  }}
+                >
+                  Log Out
+                </Button>
+                <Button
+                  type="primary"
+                  className=""
+                  onClick={() => {
+                    role === "superAdmin"
+                      ? router.push(`/super-admin/dashboard`)
+                      : router.push(`/${role}/dashboard`);
+                  }}
+                >
+                  Dashboard
+                </Button>
+              </Menu.Item>
             ) : (
-              <Button
-                type="primary"
-                onClick={() => {
-                  router.push("/login");
-                }}
-              >
-                Sign In / register
-              </Button>
+              <Menu.Item>
+                <Button
+                  type="primary"
+                  onClick={() => {
+                    router.push("/login");
+                  }}
+                >
+                  Sign In / register
+                </Button>
+              </Menu.Item>
             )}
           </Menu>
 

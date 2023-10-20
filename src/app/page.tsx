@@ -1,5 +1,6 @@
+import AllFeatures from "@/components/ui/Home/AllFeatures";
 import Banner from "@/components/ui/Home/Banner";
-import Upcoming from "@/components/ui/Home/Upcomming";
+import UpcomingService from "@/components/ui/Home/UpcomingService";
 import Navbar from "@/components/ui/Navbar/Navbar";
 import AllServices from "@/components/ui/service/AllServices";
 
@@ -17,8 +18,9 @@ export default function Home() {
     <>
       <Navbar items={items} />
       <Banner />
+      <UpcomingService />
       <AllServices />
-      <Upcoming />
+      <AllFeatures />
     </>
   );
 }

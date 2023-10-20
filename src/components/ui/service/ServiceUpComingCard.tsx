@@ -1,12 +1,12 @@
-import { UpcomingItems } from "@/types";
+import { Features, UpcomingItems } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-type ServiceUpComingCardProps = {
-  items: UpcomingItems;
+type AllFeaturesCardProps = {
+  items: Features;
 };
 
-const ServiceUpComingCard: React.FC<ServiceUpComingCardProps> = ({ items }) => {
+const AllFeaturesCard: React.FC<AllFeaturesCardProps> = ({ items }) => {
   return (
     <div className="relative shadow-xl flex flex-col justify-center text-center rounded-2xl overflow-hidden bg-white">
       <div>
@@ -31,4 +31,4 @@ const ServiceUpComingCard: React.FC<ServiceUpComingCardProps> = ({ items }) => {
     </div>
   );
 };
-export default ServiceUpComingCard;
+export default AllFeaturesCard;

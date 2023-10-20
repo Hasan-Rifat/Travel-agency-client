@@ -3,6 +3,7 @@ import { useGetAllServiceQuery } from "@/redux/api/service/serviceApiSlice";
 import { IService } from "@/types";
 import React, { useState } from "react";
 import Starts from "./Stars";
+import ServiceCard from "./ServiceCard";
 
 type AllServicesProps = {};
 
@@ -31,10 +32,7 @@ const AllServices: React.FC<AllServicesProps> = () => {
               (totalRating / (item?.reviews?.length * 5)) * 5;
 
             return (
-              <div key={item.id}>
-                <span> total booking {item?.reviews?.length}</span>
-                <Starts value={averageRating} />
-              </div>
+              <ServiceCard items={item} rating={averageRating} key={item.id} />
             );
           })}
         </div>

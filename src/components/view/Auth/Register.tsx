@@ -1,12 +1,13 @@
 "use client";
 import { Form, Input, Button, Upload, message } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 import { useRegisterMutation } from "@/redux/api/user/userApiSlice";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const RegisterForm = () => {
-  const [register] = useRegisterMutation();
+  const [register, { isLoading, data, error }] = useRegisterMutation();
   const router = useRouter();
   const normFile = (e: { fileList: any }) => {
     if (Array.isArray(e)) {
@@ -33,6 +34,31 @@ const RegisterForm = () => {
     }
     // You can now access all the form values in the 'data' object
   };
+
+  useEffect(() => {
+    // Handle login state here with isSuccess, isError, error, isLoading
+
+    if (error) {
+      if ("message" in error && error.message) {
+        toast.error(error.message, {
+          id: "login-error",
+        });
+      }
+    }
+
+    if (isLoading) {
+      toast.loading("Loading...", {
+        id: "login-loading",
+      });
+    }
+
+    return () => {
+      toast.dismiss("login-success");
+      toast.dismiss("login-error");
+      toast.dismiss("login-loading");
+    };
+  }, [data, error, isLoading]);
+
   return (
     <Form
       labelCol={{ span: 4 }}

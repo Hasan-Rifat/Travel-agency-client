@@ -1,4 +1,4 @@
-import { UpcomingItems } from "@/types";
+import { Features, UpcomingItems } from "@/types";
 import { RiUserStarLine } from "react-icons/ri";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import { MdTravelExplore } from "react-icons/md";
@@ -9,7 +9,10 @@ import features2 from "@/assets/feature-2.jpg";
 import features3 from "@/assets/feature-3.jpg";
 import features4 from "@/assets/feature-4.jpg";
 
-export const upcomingService: UpcomingItems[] = [
+import tour1 from "@/assets/tour-1.jpg";
+import tour2 from "@/assets/tour-3.jpg";
+
+export const allFeatures: Features[] = [
   {
     icon: RiUserStarLine,
     image: features1,
@@ -33,5 +36,135 @@ export const upcomingService: UpcomingItems[] = [
     image: features4,
     key: "5",
     title: "98% Years Of Travel are Happy",
+  },
+];
+
+export const upcomingService: UpcomingItems[] = [
+  {
+    id: "1",
+    name: "Adventure in the Sundarbans",
+    location: "Sundarbans, Bangladesh",
+    availability: false,
+    categoryId: "1",
+    price: 100,
+    createdAt: "2021-09-24T17:00:00.000Z",
+    public_id: "service/jl1z5mckwbuu5zxwvlra",
+    reviews: [],
+    updatedAt: "2021-09-24T17:00:00.000Z",
+    url: tour1,
+    description:
+      "Explore the breathtaking Sundarbans mangrove forest and its wildlife.",
+    category: {
+      id: "1",
+      name: "upcoming",
+      createdAt: "2021-09-24T17:00:00.000Z",
+      updatedAt: "2021-09-24T17:00:00.000Z",
+    },
+  },
+  {
+    id: "2",
+    availability: false,
+    categoryId: "1",
+    price: 100,
+    createdAt: "2021-09-24T17:00:00.000Z",
+    public_id: "service/jl1z5mckwbuu5zxwvlra",
+    reviews: [],
+    updatedAt: "2021-09-24T17:00:00.000Z",
+    name: "Cox's Bazar Beach Getaway",
+    location: "Cox's Bazar, Bangladesh",
+    url: tour2,
+    description:
+      "Relax on the world's longest natural sea beach at Cox's Bazar.",
+    category: {
+      id: "2",
+      name: "upcoming",
+      createdAt: "2021-09-24T17:00:00.000Z",
+      updatedAt: "2021-09-24T17:00:00.000Z",
+    },
+  },
+  {
+    id: "3",
+    name: "Hill Trekking in Sylhet",
+    location: "Sylhet, Bangladesh",
+    availability: false,
+    categoryId: "1",
+    price: 100,
+    createdAt: "2021-09-24T17:00:00.000Z",
+    public_id: "service/jl1z5mckwbuu5zxwvlra",
+    reviews: [],
+    updatedAt: "2021-09-24T17:00:00.000Z",
+    url: tour1,
+    description:
+      "Enjoy the beautiful hills and tea gardens of Sylhet through trekking.",
+    category: {
+      id: "3",
+      name: "upcoming",
+      createdAt: "2021-09-24T17:00:00.000Z",
+      updatedAt: "2021-09-24T17:00:00.000Z",
+    },
+  },
+  {
+    id: "4",
+    name: "Historical Tour in Dhaka",
+    location: "Dhaka, Bangladesh",
+    availability: false,
+    categoryId: "1",
+    price: 100,
+    createdAt: "2021-09-24T17:00:00.000Z",
+    public_id: "service/jl1z5mckwbuu5zxwvlra",
+    reviews: [],
+    updatedAt: "2021-09-24T17:00:00.000Z",
+    url: tour2,
+    description:
+      "Discover the rich history and culture of Dhaka with our guided tour.",
+    category: {
+      id: "4",
+      name: "upcoming",
+      createdAt: "2021-09-24T17:00:00.000Z",
+      updatedAt: "2021-09-24T17:00:00.000Z",
+    },
+  },
+  {
+    id: "5",
+    name: "Exciting Adventure Tour",
+    location: "Comilla, Bangladesh",
+    availability: false,
+    categoryId: "1",
+    price: 100,
+    createdAt: "2021-09-24T17:00:00.000Z",
+    public_id: "service/jl1z5mckwbuu5zxwvlra",
+    reviews: [],
+    updatedAt: "2021-09-24T17:00:00.000Z",
+    url: tour1,
+    description:
+      "Explore the breathtaking mountain valley with our adventure tour.",
+    category: {
+      id: "1",
+      name: "upcoming",
+      createdAt: "2021-09-24T17:00:00.000Z",
+      updatedAt: "2021-09-24T17:00:00.000Z",
+    },
+  },
+  {
+    id: "6",
+    name: "Upcoming Travel Service for Bangladesh",
+    location: "Bangladesh",
+    availability: false,
+    categoryId: "1",
+    price: 100,
+    createdAt: "2021-09-24T17:00:00.000Z",
+    public_id: "service/jl1z5mckwbuu5zxwvlra",
+    reviews: [],
+    updatedAt: "2021-09-24T17:00:00.000Z",
+    url: tour2,
+    description:
+      "Discover the beauty of Bangladesh with our upcoming travel service.",
+
+    category: {
+      id: "6",
+      name: "Nature and Adventure",
+      createdAt: "2021-09-24T17:00:00.000Z",
+      updatedAt: "2021-09-24T17:00:00.000Z",
+    }, // New category
   },
 ];
