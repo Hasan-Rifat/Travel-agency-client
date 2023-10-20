@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Breadcrumb, Button, Drawer, Layout, Menu, theme } from "antd";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -18,9 +18,20 @@ const Navbar = ({
   items: { key: string; label: string; href: string }[];
   hasSider?: boolean;
 }) => {
+  const [hydrated, setHydrated] = useState(false);
+
   const [open, setOpen] = useState(false);
   const { role } = getUserInfo() as any;
   const router = useRouter();
+  const pathName = usePathname();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+  if (!hydrated) {
+    return null;
+  }
 
   const showDrawer = () => {
     setOpen(true);
@@ -29,8 +40,6 @@ const Navbar = ({
   const onClose = () => {
     setOpen(false);
   };
-  const pathName = usePathname();
-  const dispatch = useAppDispatch();
 
   const signOut = () => {
     localStorage.clear();

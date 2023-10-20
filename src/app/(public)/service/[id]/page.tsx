@@ -1,8 +1,16 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
-type pageProps = {};
+type DetailsPageProps = {};
 
-const page: React.FC<pageProps> = () => {
+const DetailsPage = () => {
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+  if (!hydrated) {
+    return null;
+  }
   return (
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">
@@ -183,4 +191,4 @@ const page: React.FC<pageProps> = () => {
     </section>
   );
 };
-export default page;
+export default DetailsPage;
