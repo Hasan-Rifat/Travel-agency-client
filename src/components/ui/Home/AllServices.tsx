@@ -2,8 +2,8 @@
 import { useGetAllServiceQuery } from "@/redux/api/service/serviceApiSlice";
 import { IService } from "@/types";
 import React, { useState } from "react";
-import Starts from "./Stars";
-import ServiceCard from "./ServiceCard";
+import Starts from "../service/Stars";
+import ServiceCard from "../service/ServiceCard";
 
 type AllServicesProps = {};
 
@@ -20,6 +20,14 @@ const AllServices: React.FC<AllServicesProps> = () => {
   return (
     <section>
       <div className="container mx-auto p-[50px]">
+        <div className="text-center mb-14">
+          <h5 className="text-[#808080] font-semibold uppercase text-lg">
+            All Services
+          </h5>
+          <h4 className="text-[#061a3a] text-4xl font-black uppercase mt-2">
+            Explore our exciting travel services.
+          </h4>
+        </div>
         <div className="grid grid-cols-3 gap-5">
           {data?.data?.data?.map((item: IService) => {
             const totalRating = item?.reviews?.reduce(

@@ -79,3 +79,13 @@ export type IService = {
   createdAt: ReactNode;
   updatedAt: Date;
 };
+
+export type IBlog = {
+  id: string;
+  title: string;
+  category: string;
+  role: string;
+  img: StaticImageData;
+  date: string;
+  description: string;
+};

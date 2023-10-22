@@ -8,3 +8,29 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+/* In your CSS or SCSS file */
+.slick-list {
+  height: 500px !important;
+}
+
+.shadow-custom {
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.2);
+}
+
+.slick-slide {
+  margin-right: 20px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  opacity: 1 !important;
+  color: #000 !important;
+}
+.slick-next {
+  right: -40px !important;
+}
+
+.slick-prev {
+  left: -40px !important;
+}

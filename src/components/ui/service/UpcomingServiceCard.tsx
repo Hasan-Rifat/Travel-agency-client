@@ -4,8 +4,8 @@ import React from "react";
 import Starts from "./Stars";
 import { GoClock } from "react-icons/go";
 import { GrMapLocation } from "react-icons/gr";
-import { Button } from "antd";
 import Link from "next/link";
+import Button from "@/components/Button";
 
 type UpcomingServiceCardProps = {
   items: UpcomingItems;
@@ -60,7 +60,7 @@ const UpcomingServiceCard: React.FC<UpcomingServiceCardProps> = ({
               <span className="text-[#808080] text-sm ">{items.location}</span>
             </div>
           </div>
-          <p className="my-6 text-[#808080]">{items.description}</p>
+          <p className="my-6 text-[#808080] leading-6">{items.description}</p>
           <p>
             <strong>Category:</strong>{" "}
             <span className="text-[#808080]">{items.category.name}</span>
@@ -73,12 +73,10 @@ const UpcomingServiceCard: React.FC<UpcomingServiceCardProps> = ({
           </div>
           {items.availability ? (
             <Link href={`/service/${items.id}`}>
-              <Button className="w-full" type="primary">
-                Book Now
-              </Button>
+              <Button className="w-full">Book Now</Button>
             </Link>
           ) : (
-            <Button className="w-full" type="primary" disabled>
+            <Button className="w-full" disabled={true}>
               Book Now
             </Button>
           )}

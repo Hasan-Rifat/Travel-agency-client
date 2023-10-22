@@ -18,8 +18,7 @@ const Starts: React.FC<StartsProps> = ({ value, data }) => {
           <IoIosStarHalf size={data ? data : 20} className="text-[#FFB340]" />
         ) : (
           <IoIosStarOutline
-            width={data ? data : 20}
-            height={data ? data : 20}
+            size={data ? data : 20}
             className="text-[#FFB340]"
           />
         )}
