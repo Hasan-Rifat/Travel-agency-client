@@ -68,7 +68,7 @@ const Navbar = ({
                   hasSider && "text-center lg:text-left"
                 }`}
               >
-                Travel agency
+                Travel <span className="text-[#ff7c5b]">Agency</span>
               </Title>
             </Link>
           </Content>

@@ -1,4 +1,8 @@
 import React from "react";
+import { IoLocationSharp } from "react-icons/io5";
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdMarkEmailRead } from "react-icons/md";
+import Link from "next/link";
 
 type FooterProps = {};
 
@@ -6,51 +10,16 @@ const Footer: React.FC<FooterProps> = () => {
   return (
     <footer className="bg-[#14161c] text-white">
       <div className="container mx-auto ">
-        <div className="flex p-10 bg-base-200 text-base-content">
-          <div className="w-1/3">
-            <h4 className="mb-7 text-2xl font-bold">Services</h4>
-            <ul className="list-none flex flex-col gap-4">
-              <li className="link link-hover">Branding</li>
-              <li className="link link-hover">Design</li>
-              <li className="link link-hover">Marketing</li>
-              <li className="link link-hover">Advertisement</li>
-            </ul>
-          </div>
-          <div className="w-1/3">
-            <h4 className="mb-7 text-2xl font-bold">Company</h4>
-            <ul className="list-none flex flex-col gap-4">
-              <li className="link link-hover">About us</li>
-              <li className="link link-hover">Contact</li>
-              <li className="link link-hover">Jobs</li>
-              <li className="link link-hover">Press kit</li>
-            </ul>
-          </div>
-          <div className="w-1/3">
-            <h4 className="mb-7 text-2xl font-bold">Legal</h4>
-            <ul className="list-none flex flex-col gap-4">
-              <li className="link link-hover">Terms of use</li>
-              <li className="link link-hover">Privacy policy</li>
-              <li className="link link-hover">Cookie policy</li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300 flex items-center justify-between">
-          <aside className="flex items-center gap-5">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              fillRule="evenodd"
-              clipRule="evenodd"
-              className="fill-current"
-            >
-              <path d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
-            </svg>
-            <p>Travel agency</p>
-          </aside>
-          <nav className="md:place-self-center md:justify-self-end">
-            <div className="grid grid-flow-col gap-4">
+        <div className="flex flex-col lg:flex-row  p-10 bg-base-200 text-base-content gap-10">
+          <div className="w-full lg:w-1/3">
+            <h4 className="text-4xl">
+              Travel <span className="text-[#ff7c5b]">Agency</span>
+            </h4>
+            <p className="text-[#aeb1b8] py-5 leading-6">
+              Lorem ipsum dolor amet consetetur adi pisicing elit sed eiusm
+              tempor in cididunt ut labore dolore magna aliqua enim.
+            </p>
+            <div className="flex items-center gap-4">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +54,59 @@ const Footer: React.FC<FooterProps> = () => {
                 </svg>
               </div>
             </div>
-          </nav>
+          </div>
+          <div className="w-full lg:w-1/3">
+            <h4 className="mb-7 text-2xl font-bold">Services</h4>
+            <ul className="list-none flex flex-col gap-4">
+              <Link href={"/about-us"} className="text-white no-underline">
+                About us
+              </Link>
+              <Link href={"/our-blogs"} className="text-white no-underline">
+                Our Blogs
+              </Link>
+              <Link href={"/our-services"} className="text-white no-underline">
+                Our Services
+              </Link>
+              <Link href={"/contact-us"} className="text-white no-underline">
+                Contact Us
+              </Link>
+            </ul>
+          </div>
+          <div className="w-full lg:w-1/3">
+            <h4 className="mb-7 text-2xl font-bold">Contacts</h4>
+            <div className="list-none flex flex-col gap-4 w-full">
+              <div className=" flex items-center gap-1 w-full">
+                <IoLocationSharp
+                  size={20}
+                  className="block text-[#ff7c5b] mr-4 w-[40px]"
+                />
+                <span className="w-full">
+                  Flat 20, Reynolds Neck, North Helenaville, FV77 8WS
+                </span>
+              </div>
+              <div className=" flex items-center gap-1 w-full">
+                <FaPhoneAlt
+                  size={20}
+                  className="block text-[#ff7c5b] mr-4 w-[40px]"
+                />
+                <span className="block">(+88)01768227738</span>
+              </div>
+              <div className=" flex items-center gap-1 w-full">
+                <MdMarkEmailRead
+                  size={20}
+                  className="block text-[#ff7c5b] mr-4 w-[40px]"
+                />
+                <span className="block">contacthasanrifat@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300 flex items-center justify-between">
+          <aside className="flex items-center gap-5">
+            <p>
+              Travel agency © {new Date().getFullYear()} All Right Reserved{" "}
+            </p>
+          </aside>
         </div>
       </div>
     </footer>

@@ -32,25 +32,17 @@ const AboutTravel: React.FC<AboutTravelProps> = () => {
   ];
   return (
     <section className="bg-[#fff] py-3">
-      <div className="container mx-auto p-[50px]">
-        <div className="flex items-center gap-24">
+      <div className="container mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-24  p-[50px]">
           <div className="w-full lg:w-1/2 ">
-            {/*  <div>
-              <Image />
-            </div>
-            <div>
-                <Image/>
-            </div> */}
             <div className="flex justify-center">
               <Image
                 src={about}
                 alt="about"
-                width={390}
-                height={390}
                 className="bg-white p-3 rounded-xl shadow-custom "
               />
             </div>
-            <div className="flex items-center mt-12 gap-16">
+            <div className="flex items-center mt-12 gap-16 flex-col lg:flex-row ">
               <Image
                 src={about2}
                 alt="about"

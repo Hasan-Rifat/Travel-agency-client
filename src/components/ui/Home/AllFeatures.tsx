@@ -13,7 +13,7 @@ const AllFeatures: React.FC<AllFeaturesProps> = () => {
           <h5 className="text-[#808080] font-semibold uppercase text-lg">
             TRAVIO SPECIALS
           </h5>
-          <h4 className="text-[#061a3a] text-4xl font-black uppercase mt-2">
+          <h4 className="text-[#061a3a] text-xl md:text-4xl font-black uppercase mt-2">
             Why Travel with Tutive?
           </h4>
         </div>
