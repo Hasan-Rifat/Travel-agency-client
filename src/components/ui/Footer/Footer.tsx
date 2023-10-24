@@ -78,7 +78,7 @@ const Footer: React.FC<FooterProps> = () => {
               <div className=" flex items-center gap-1 w-full">
                 <IoLocationSharp
                   size={20}
-                  className="block text-[#ff7c5b] mr-4 w-[40px]"
+                  className="block text-[#ff7c5b] mr-4 w-[70px]"
                 />
                 <span className="w-full">
                   Flat 20, Reynolds Neck, North Helenaville, FV77 8WS
@@ -87,14 +87,15 @@ const Footer: React.FC<FooterProps> = () => {
               <div className=" flex items-center gap-1 w-full">
                 <FaPhoneAlt
                   size={20}
-                  className="block text-[#ff7c5b] mr-4 w-[40px]"
+                  className="block text-[#ff7c5b] mr-4 w-[70px]"
                 />
                 <span className="block">(+88)01768227738</span>
               </div>
-              <div className=" flex items-center gap-1 w-full">
+
+              <div className=" flex items-center flex-wrap gap-1 w-full">
                 <MdMarkEmailRead
                   size={20}
-                  className="block text-[#ff7c5b] mr-4 w-[40px]"
+                  className="block text-[#ff7c5b] mr-4 w-[70px]"
                 />
                 <span className="block">contacthasanrifat@gmail.com</span>
               </div>

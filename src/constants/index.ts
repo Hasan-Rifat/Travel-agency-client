@@ -1,4 +1,4 @@
-import { Features, UpcomingItems } from "@/types";
+import { Features, IABPerson, UpcomingItems } from "@/types";
 import { RiUserStarLine } from "react-icons/ri";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import { MdTravelExplore } from "react-icons/md";
@@ -11,6 +11,10 @@ import features4 from "@/assets/feature-4.jpg";
 
 import tour1 from "@/assets/tour-1.jpg";
 import tour2 from "@/assets/tour-3.jpg";
+
+import team1 from "@/assets/team-1.jpg";
+import team2 from "@/assets/team-2.jpg";
+import team3 from "@/assets/team-3.jpg";
 
 export const allFeatures: Features[] = [
   {
@@ -166,5 +170,26 @@ export const upcomingService: UpcomingItems[] = [
       createdAt: "2021-09-24T17:00:00.000Z",
       updatedAt: "2021-09-24T17:00:00.000Z",
     }, // New category
+  },
+];
+
+export const AboutPersonCardInfo: IABPerson[] = [
+  {
+    id: "1",
+    name: "Merrie Lewis",
+    description: "Tour Guide",
+    img: team1,
+  },
+  {
+    id: "2",
+    name: "Parks Missie",
+    description: "Tour Guide",
+    img: team2,
+  },
+  {
+    id: "3",
+    name: "Mariana Buenos",
+    description: "Tour Guide",
+    img: team3,
   },
 ];

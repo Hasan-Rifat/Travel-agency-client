@@ -1,4 +1,4 @@
-import { upcomingService } from "@/constants/upcomingService";
+import { upcomingService } from "@/constants";
 import { IService, UpcomingItems } from "@/types";
 import React from "react";
 import ServiceCard from "../service/ServiceCard";
@@ -9,12 +9,12 @@ type UpcomingServiceProps = {};
 const UpcomingService: React.FC<UpcomingServiceProps> = () => {
   return (
     <section className="bg-[#f5f6f6] pb-3">
-      <div className="container mx-auto p-[50px]">
+      <div className="container mx-auto p-5 md:p-[50px]">
         <div className="text-center mb-14">
           <h5 className="text-[#808080] font-semibold uppercase text-lg">
             UPcoming Travel services
           </h5>
-          <h4 className="text-[#061a3a] text-4xl font-black uppercase mt-2">
+          <h4 className="text-[#061a3a] text-xl md:text-4xl  leading-9 font-black uppercase mt-2">
             Upcoming Travel Service for Bangladesh there are many variations
           </h4>
         </div>

@@ -89,3 +89,10 @@ export type IBlog = {
   date: string;
   description: string;
 };
+
+export type IABPerson = {
+  id: string;
+  name: string;
+  img: StaticImageData;
+  description: string;
+};

@@ -14,8 +14,6 @@ const BlogCard: React.FC<BlogCardProps> = ({ item }) => {
       <div className="relative">
         <div>
           <Image
-            /* width={370}
-            height={270} */
             src={item.img}
             alt={item.title}
             className="w-full lg:h-[350px]"

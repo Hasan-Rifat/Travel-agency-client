@@ -81,7 +81,7 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = () => {
         {reviews.map((item, i) => (
           <div
             key={item.id}
-            className=" px-16 py-12 relative w-full -z-10 text-center rounded-3xl bg-white overflow-hidden "
+            className=" lg:px-16 lg:py-12 p-5 relative w-full -z-10 text-center rounded-3xl bg-white overflow-hidden "
           >
             <div className=" ">
               <div className="flex items-center justify-center">

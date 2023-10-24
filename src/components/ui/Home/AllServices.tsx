@@ -19,16 +19,16 @@ const AllServices: React.FC<AllServicesProps> = () => {
 
   return (
     <section>
-      <div className="container mx-auto p-[50px]">
+      <div className="container mx-auto p-5 md:p-[50px]">
         <div className="text-center mb-14">
           <h5 className="text-[#808080] font-semibold uppercase text-lg">
             All Services
           </h5>
-          <h4 className="text-[#061a3a] text-4xl font-black uppercase mt-2">
+          <h4 className="text-[#061a3a] text-xl md:text-4xl font-black uppercase mt-2">
             Explore our exciting travel services.
           </h4>
         </div>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {data?.data?.data?.map((item: IService) => {
             const totalRating = item?.reviews?.reduce(
               (acc, review) => acc + review.rating,

@@ -79,8 +79,8 @@ const Navbar = ({
             mode="horizontal"
             selectedKeys={[pathName]}
           >
-            {items?.map((item) => (
-              <Menu.Item key={item.href}>
+            {items?.map((item, i) => (
+              <Menu.Item key={i}>
                 <Link href={item.href}>{item.label}</Link>
               </Menu.Item>
             ))}
@@ -91,21 +91,21 @@ const Navbar = ({
                   type="primary"
                   className="mr-2"
                   onClick={() => {
-                    signOut();
-                  }}
-                >
-                  Log Out
-                </Button>
-                <Button
-                  type="primary"
-                  className=""
-                  onClick={() => {
                     role === "superAdmin"
                       ? router.push(`/super-admin/dashboard`)
                       : router.push(`/${role}/dashboard`);
                   }}
                 >
                   Dashboard
+                </Button>
+                <Button
+                  type="primary"
+                  className=""
+                  onClick={() => {
+                    signOut();
+                  }}
+                >
+                  Log Out
                 </Button>
               </Menu.Item>
             ) : (
@@ -137,11 +137,46 @@ const Navbar = ({
               selectedKeys={[pathName]}
               style={{ borderRight: 0 }}
             >
-              {items?.map((item) => (
-                <Menu.Item key={item.href}>
+              {items?.map((item, i) => (
+                <Menu.Item key={i}>
                   <Link href={item.href}>{item.label}</Link>
                 </Menu.Item>
               ))}
+              {role ? (
+                <Menu.Item className="">
+                  <Button
+                    type="primary"
+                    className="mr-2"
+                    onClick={() => {
+                      role === "superAdmin"
+                        ? router.push(`/super-admin/dashboard`)
+                        : router.push(`/${role}/dashboard`);
+                    }}
+                  >
+                    Dashboard
+                  </Button>
+                  <Button
+                    type="primary"
+                    className=""
+                    onClick={() => {
+                      signOut();
+                    }}
+                  >
+                    Log Out
+                  </Button>
+                </Menu.Item>
+              ) : (
+                <Menu.Item>
+                  <Button
+                    type="primary"
+                    onClick={() => {
+                      router.push("/login");
+                    }}
+                  >
+                    Sign In / register
+                  </Button>
+                </Menu.Item>
+              )}
             </Menu>
           </Drawer>
         </div>

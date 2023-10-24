@@ -34,3 +34,14 @@
 .slick-prev {
   left: -40px !important;
 }
+
+.slick-prev,
+.slick-next {
+  top: 40% !important;
+}
+
+@media (max-width: 768px) {
+  .slick-slide {
+    margin-right: 0px;
+  }
+}
