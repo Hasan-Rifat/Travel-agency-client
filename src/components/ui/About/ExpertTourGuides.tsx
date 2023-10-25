@@ -1,11 +1,11 @@
 import { AboutPersonCardInfo } from "@/constants";
 import { IABPerson } from "@/types";
-import React from "react";
+
 import AboutPersonCard from "../service/AboutPersonCard";
 
-type ExpertTourGuidesProps = {};
 
-const ExpertTourGuides: React.FC<ExpertTourGuidesProps> = () => {
+
+const ExpertTourGuides = () => {
   return (
     <section className="bg-[#fff] py-3">
       <div className="container mx-auto  p-5 md:!p-[50px]">
