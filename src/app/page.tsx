@@ -13,6 +13,11 @@ export default function Home() {
     { key: "0", href: "/", label: "Home" },
     {
       key: "1",
+      href: "/about-us",
+      label: "About us",
+    },
+    {
+      key: "2",
       href: "/service",
       label: "Service",
     },
