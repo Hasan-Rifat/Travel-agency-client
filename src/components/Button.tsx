@@ -7,7 +7,7 @@ type ButtonProps = {
 };
 
 const Button: React.FC<ButtonProps> = ({ children, disabled, className }) => {
-  console.log(disabled);
+ 
   return (
     <button
       // disabled={disabled ? true : false}

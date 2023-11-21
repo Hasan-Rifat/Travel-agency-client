@@ -13,7 +13,7 @@ type ServiceCardProps = {
 };
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ items, rating }) => {
-  console.log(items?.reviews?.length);
+
   return (
     <div className="relative shadow-xl flex flex-col justify-center  rounded-2xl overflow-hidden bg-white">
       <div>

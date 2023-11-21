@@ -1,4 +1,5 @@
 import TitleBar from "@/components/TitleBar";
+import AllServiceData from "@/components/ui/all-services/AllServiceData";
 import React from "react";
 
 type pageProps = {};
@@ -6,7 +7,8 @@ type pageProps = {};
 const page: React.FC<pageProps> = () => {
   return (
     <>
-      <TitleBar title={"Our services"} />
+      <TitleBar title={"All services"} />
+      <AllServiceData />
     </>
   );
 };

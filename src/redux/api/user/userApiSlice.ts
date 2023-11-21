@@ -10,7 +10,6 @@ const userApiSlice = apiSlice.injectEndpoints({
       }),
       onQueryStarted: async (arg, { dispatch, queryFulfilled }) => {
         try {
-          console.log(arg);
           const result = await queryFulfilled;
         } catch (err) {
           console.log(err);

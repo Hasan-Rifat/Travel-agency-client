@@ -18,20 +18,11 @@ const Navbar = ({
   items: { key: string; label: string; href: string }[];
   hasSider?: boolean;
 }) => {
-  const [hydrated, setHydrated] = useState(false);
-
   const [open, setOpen] = useState(false);
   const { role } = getUserInfo() as any;
   const router = useRouter();
   const pathName = usePathname();
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-  if (!hydrated) {
-    return null;
-  }
 
   const showDrawer = () => {
     setOpen(true);
@@ -47,103 +38,48 @@ const Navbar = ({
   };
 
   return (
-    <Layout className="layout bg-[#001529]">
-      <Header className="mx-auto container flex items-center  ">
-        <div className="flex items-center gap-5 w-full">
+    <header className="layout bg-[#001529]">
+      <div className="mx-auto container flex items-center  p-5">
+        <div className="flex items-center gap-5 w-full justify-between">
           {hasSider && (
-            <Button
-              type="primary"
-              className="lg:hidden"
+            <button
+              className="lg:hidden bg-[#ff7c5b] text-white px-4 py-2 rounded"
               onClick={() => {
                 dispatch(showSidebarDrawer());
               }}
             >
               <MenuOutlined />
-            </Button>
+            </button>
           )}
-          <Content>
-            <Link href="/">
-              <Title
-                className={`m-0 text-white ${
+          <div>
+            <Link href="/" className="!no-underline">
+              <p
+                className={`m-0 text-white font-bold text-2xl ${
                   hasSider && "text-center lg:text-left"
                 }`}
               >
                 Travel <span className="text-[#ff7c5b]">Agency</span>
-              </Title>
+              </p>
             </Link>
-          </Content>
-          <Menu
-            className="lg:block hidden"
-            disabledOverflow
-            theme="dark"
-            mode="horizontal"
-            selectedKeys={[pathName]}
-          >
-            {items?.map((item, i) => (
-              <Menu.Item key={i}>
-                <Link href={item.href}>{item.label}</Link>
-              </Menu.Item>
-            ))}
-
-            {role ? (
-              <Menu.Item className="">
-                <Button
-                  type="primary"
-                  className="mr-2"
-                  onClick={() => {
-                    role === "superAdmin"
-                      ? router.push(`/super-admin/dashboard`)
-                      : router.push(`/${role}/dashboard`);
-                  }}
-                >
-                  Dashboard
-                </Button>
-                <Button
-                  type="primary"
-                  className=""
-                  onClick={() => {
-                    signOut();
-                  }}
-                >
-                  Log Out
-                </Button>
-              </Menu.Item>
-            ) : (
-              <Menu.Item>
-                <Button
-                  type="primary"
-                  onClick={() => {
-                    router.push("/login");
-                  }}
-                >
-                  Sign In / register
-                </Button>
-              </Menu.Item>
-            )}
-          </Menu>
-
-          <Button type="primary" className="lg:hidden" onClick={showDrawer}>
-            <MenuOutlined />
-          </Button>
-          <Drawer
-            title="Menu"
-            placement="right"
-            onClose={onClose}
-            visible={open}
-          >
-            <Menu
-              theme="light"
-              mode="vertical"
-              selectedKeys={[pathName]}
-              style={{ borderRight: 0 }}
+          </div>
+          <nav className="lg:block hidden">
+            <ul
+              className=" flex items-center gap-5 "
+              // disabledOverflow
+              // theme="dark"
+              // mode="horizontal"
+              // selectedKeys={[pathName]}
             >
               {items?.map((item, i) => (
-                <Menu.Item key={i}>
-                  <Link href={item.href}>{item.label}</Link>
-                </Menu.Item>
+                <li className="" key={i}>
+                  <Link className="no-underline text-white" href={item.href}>
+                    {item.label}
+                  </Link>
+                </li>
               ))}
+
               {role ? (
-                <Menu.Item className="">
+                <li className="">
                   <Button
                     type="primary"
                     className="mr-2"
@@ -164,9 +100,9 @@ const Navbar = ({
                   >
                     Log Out
                   </Button>
-                </Menu.Item>
+                </li>
               ) : (
-                <Menu.Item>
+                <li>
                   <Button
                     type="primary"
                     onClick={() => {
@@ -175,13 +111,71 @@ const Navbar = ({
                   >
                     Sign In / register
                   </Button>
-                </Menu.Item>
+                </li>
               )}
-            </Menu>
+            </ul>
+          </nav>
+
+          <Button type="primary" className="lg:hidden" onClick={showDrawer}>
+            <MenuOutlined />
+          </Button>
+          <Drawer
+            title="Menu"
+            placement="right"
+            onClose={onClose}
+            visible={open}
+          >
+            <ul
+            /* theme="light"
+              mode="vertical"
+              selectedKeys={[pathName]}
+              style={{ borderRight: 0 }} */
+            >
+              {items?.map((item, i) => (
+                <li key={i}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
+              {role ? (
+                <li className="">
+                  <Button
+                    type="primary"
+                    className="mr-2"
+                    onClick={() => {
+                      role === "superAdmin"
+                        ? router.push(`/super-admin/dashboard`)
+                        : router.push(`/${role}/dashboard`);
+                    }}
+                  >
+                    Dashboard
+                  </Button>
+                  <Button
+                    type="primary"
+                    className=""
+                    onClick={() => {
+                      signOut();
+                    }}
+                  >
+                    Log Out
+                  </Button>
+                </li>
+              ) : (
+                <li>
+                  <Button
+                    type="primary"
+                    onClick={() => {
+                      router.push("/login");
+                    }}
+                  >
+                    Sign In / register
+                  </Button>
+                </li>
+              )}
+            </ul>
           </Drawer>
         </div>
-      </Header>
-    </Layout>
+      </div>
+    </header>
   );
 };
 

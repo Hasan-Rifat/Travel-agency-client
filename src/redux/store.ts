@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "./api/apiSlice";
 import sideBarSlice from "./slice/sideBarSlice";
-import { getFromLocalStorage } from "@/utils/local-storage";
-import { authKey } from "@/constants/storageKey";
 import userSlice from "./api/user/userSlice";
+import searchSlice from "./slice/searchSlice";
 
 export const store = configureStore({
   reducer: {
     sidebar: sideBarSlice,
     user: userSlice,
+    search: searchSlice,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
@@ -35,7 +35,7 @@ const initialState = async () => {
   );
 };
 
-initialState();
+// initialState();
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
