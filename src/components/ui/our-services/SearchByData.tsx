@@ -1,4 +1,5 @@
 import { getServiceIntoDb } from "@/services/all-service/getServiceIntoDb";
+import { searchService } from "@/services/all-service/serverAction";
 import { IService } from "@/types";
 import { revalidateTag } from "next/cache";
 import { FaSearch } from "react-icons/fa";
@@ -7,15 +8,14 @@ type SearchByDataProps = {};
 
 const SearchByData: React.FC<SearchByDataProps> = async () => {
   const { data } = await getServiceIntoDb();
-  console.log(data);
 
-  const handelSearch = (e: FormData) => {};
+  const handelSearch = () => {};
 
   return (
     <div className="max-w-[1200px] mx-auto p-5 md:p-[50px]">
       {/* search by location, name, and category */}
       <div className=" px-8 py-12  shadow-custom bg-white rounded-lg mb-20">
-        <form action={handelSearch} className="w-full flex  gap-5">
+        <form action={searchService} className="w-full flex  gap-5">
           {/* location */}
           <select
             name="location"
@@ -58,7 +58,7 @@ const SearchByData: React.FC<SearchByDataProps> = async () => {
             </option>
             {data &&
               data?.data?.map((item: IService) => (
-                <option key={item.category.id} value={item.category.name}>
+                <option key={item.category.id} value={item.category.id}>
                   {item.category.name}
                 </option>
               ))}

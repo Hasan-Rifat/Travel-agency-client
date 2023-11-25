@@ -3,6 +3,6 @@ import React from "react";
 type pageProps = {};
 
 const page: React.FC<pageProps> = () => {
-  return <div>checkOut page</div>;
+  return <main>checkOut page</main>;
 };
 export default page;

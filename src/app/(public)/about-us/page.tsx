@@ -8,12 +8,12 @@ type pageProps = {};
 
 const page: React.FC<pageProps> = () => {
   return (
-    <>
+    <main>
       <TitleBar title={"About us"} />
       <AboutTravel />
       <Testimonials />
       <ExpertTourGuides />
-    </>
+    </main>
   );
 };
 export default page;

@@ -15,10 +15,9 @@ const poppins = Poppins({
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const { role } = getUserInfo() as any;
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const { role } = getUserInfo() as any;
   useEffect(() => {
     if (role !== "superAdmin") {
       router.push("/login");

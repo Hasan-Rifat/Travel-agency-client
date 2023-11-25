@@ -1,15 +1,15 @@
 import TitleBar from "@/components/TitleBar";
-import AllServiceData from "@/components/ui/all-services/AllServiceData";
+import AllServiceData from "@/components/ui/our-services/AllServiceData";
 import React from "react";
 
 type pageProps = {};
 
 const page: React.FC<pageProps> = () => {
   return (
-    <>
-      <TitleBar title={"All services"} />
+    <main>
+      <TitleBar title={"Our services"} />
       <AllServiceData />
-    </>
+    </main>
   );
 };
 export default page;

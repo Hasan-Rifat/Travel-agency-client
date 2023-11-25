@@ -5,11 +5,11 @@ type pageProps = {};
 
 const page: React.FC<pageProps> = () => {
   return (
-    <section>
-      <div>
+    <main>
+      <section>
         <RegisterForm />
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 export default page;

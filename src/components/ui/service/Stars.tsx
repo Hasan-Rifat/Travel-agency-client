@@ -11,7 +11,7 @@ const Starts: React.FC<StartsProps> = ({ value, data }) => {
     let number = index + 0.5;
 
     return (
-      <span key={index}>
+      <div key={index}>
         {value >= index + 1 ? (
           <IoIosStar className="text-[#FFB340]" size={data ? data : 20} />
         ) : value >= number ? (
@@ -22,7 +22,7 @@ const Starts: React.FC<StartsProps> = ({ value, data }) => {
             className="text-[#FFB340]"
           />
         )}
-      </span>
+      </div>
     );
   });
   return <div className="flex gap-[2px]">{ratingStart}</div>;

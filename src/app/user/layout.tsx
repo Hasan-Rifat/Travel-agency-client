@@ -1,7 +1,6 @@
 "use client";
 import UserHeader from "@/components/view/Header/UserHeader";
 import UserSideBar from "@/components/view/SideBar/UserSideBar";
-import { useAppSelector } from "@/redux/hooks";
 import { getUserInfo } from "@/services/auth.service";
 import { Row, Space, Spin } from "antd";
 import type { Metadata } from "next";
@@ -15,8 +14,8 @@ const poppins = Poppins({
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const { role } = getUserInfo() as any;
   const router = useRouter();
+  const { role } = getUserInfo() as any;
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {

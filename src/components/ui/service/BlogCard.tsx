@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import { IBlog } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { BiCalendar } from "react-icons/bi";
 
@@ -42,7 +43,9 @@ const BlogCard: React.FC<BlogCardProps> = ({ item }) => {
         </p>
 
         <p className="mb-[22px] text-[#808080]">{item.description}</p>
-        <Button>See Details</Button>
+        <Link href={`/blogs/${item.id}`}>
+          <Button>See Details</Button>
+        </Link>
       </div>
     </div>
   );

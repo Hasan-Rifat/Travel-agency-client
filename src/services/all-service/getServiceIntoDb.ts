@@ -1,12 +1,18 @@
 "use server";
-export async function getServiceIntoDb() {
-  const res = await fetch(`http://localhost:5000/api/v1/service`, {
-    cache: "no-cache",
-    next: {
-      tags: ["service"],
-    },
-  });
-  console.log(res);
+/* export async function getServiceIntoDb(payload?: {
+  location: string;
+  name: string;
+  categoryId: string;
+}) {
+  const res = await fetch(
+    `https://travel-agency-service-server-kappa.vercel.app/api/v1/service?location=${payload?.location}&categoryId=${payload?.categoryId}&name=${payload?.name}`,
+    {
+      cache: "no-cache",
+      next: {
+        tags: ["service"],
+      },
+    }
+  );
   if (!res.ok) {
     throw new Error(`Failed to fetch data. Server response`);
   }
@@ -14,17 +20,40 @@ export async function getServiceIntoDb() {
   const data = await res.json();
 
   return data;
-}
+} */
+export async function getServiceIntoDb(query?: {
+  location: string;
+  name: string;
+  categoryId: string;
+}) {
+  let url =
+    "https://travel-agency-service-server-kappa.vercel.app/api/v1/service?";
 
-export async function getData() {
-  const res = await fetch("http://localhost:5000/api/v1/service");
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
+  // Check if each parameter exists in the payload before adding it to the URL
+  if (query?.location) {
+    url += `location=${query?.location}&`;
+  }
+  if (query?.name) {
+    url += `name=${query?.name}&`;
+  }
+  if (query?.categoryId) {
+    url += `categoryId=${query?.categoryId}&`;
   }
 
-  return res.json();
+  url = url.slice(0, -1); // Remove the trailing '&' from the URL
+
+  const res = await fetch(url, {
+    cache: "no-cache",
+    next: {
+      tags: ["service"],
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch data. Server response`);
+  }
+
+  const data = await res.json();
+
+  return data;
 }

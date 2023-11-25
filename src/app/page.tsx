@@ -18,14 +18,24 @@ export default function Home() {
     },
     {
       key: "2",
-      href: "/all-service",
-      label: "All Service",
+      href: "/services",
+      label: "Service",
+    },
+    {
+      key: "3",
+      href: "/blogs",
+      label: "Blogs",
+    },
+    {
+      key: "4",
+      href: "/contact-us",
+      label: "Contact Us",
     },
   ];
 
   return (
     <>
-      {/* <Navbar items={items} /> */}
+      <Navbar items={items} />
       <Banner />
       <AllFeatures />
       <AboutTravel />

@@ -45,9 +45,9 @@ const LoginForm = () => {
       const res = await login({ ...values }).unwrap();
       dispatch(getUser(res?.user));
       if (res?.user) {
-        res?.user?.role === "superAdmin"
+       res?.user?.role === "superAdmin"
           ? router.push(`/super-admin/dashboard`)
-          : router.push(`/${res?.user?.role}/dashboard`);
+          : router.push(`/${res?.user?.role}/dashboard`); 
 
         message.success("User logged in successfully!");
       }

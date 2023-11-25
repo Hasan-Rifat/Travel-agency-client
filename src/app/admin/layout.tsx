@@ -1,7 +1,6 @@
 "use client";
 import AdminHeader from "@/components/view/Header/AdminHeader";
 import AdminSideBar from "@/components/view/SideBar/AdminSideBar";
-import { useAppSelector } from "@/redux/hooks";
 import { getUserInfo } from "@/services/auth.service";
 import { Row, Space, Spin } from "antd";
 import { JwtPayload } from "jwt-decode";
@@ -16,11 +15,9 @@ const poppins = Poppins({
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const { role } = getUserInfo() as any;
-
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const { role } = getUserInfo() as any;
   useEffect(() => {
     if (role !== "admin") {
       router.push("/login");

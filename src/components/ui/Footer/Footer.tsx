@@ -61,11 +61,11 @@ const Footer: React.FC<FooterProps> = () => {
               <Link href={"/about-us"} className="text-white no-underline">
                 About us
               </Link>
-              <Link href={"/our-blogs"} className="text-white no-underline">
-                Our Blogs
+              <Link href={"/blogs"} className="text-white no-underline">
+                Blogs
               </Link>
-              <Link href={"/our-services"} className="text-white no-underline">
-                Our Services
+              <Link href={"/Services"} className="text-white no-underline">
+                Services
               </Link>
               <Link href={"/contact-us"} className="text-white no-underline">
                 Contact Us

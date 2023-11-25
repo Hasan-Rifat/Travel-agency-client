@@ -4,6 +4,7 @@ import { IconType } from "react-icons";
 import { GiCheckMark } from "react-icons/gi";
 import Button from "@/components/Button";
 import { MdSlowMotionVideo } from "react-icons/md";
+import Link from "next/link";
 
 type AboutTravelProps = {};
 
@@ -28,7 +29,9 @@ const AboutTravel: React.FC<AboutTravelProps> = () => {
               accumsan lacus vel facilisis.
             </p>
             <div className="shadow-custom mt-2 inline-block">
-              <Button>Find Tours</Button>
+              <Link href={"/services"}>
+                <Button>Find Tours</Button>
+              </Link>
             </div>
           </div>
           <div className="w-full lg:w-1/2 ">

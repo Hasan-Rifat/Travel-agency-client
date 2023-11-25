@@ -70,7 +70,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ items, rating }) => {
             </span>
           </div>
           {items.availability ? (
-            <Link href={`/service/${items.id}`}>
+            <Link href={`/services/${items.id}`}>
               <Button className="w-full">Book Now</Button>
             </Link>
           ) : (

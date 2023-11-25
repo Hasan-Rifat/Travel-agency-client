@@ -2,21 +2,17 @@ import React from "react";
 import ServiceCard from "../service/ServiceCard";
 import { IService } from "@/types";
 import { FaSearch } from "react-icons/fa";
-import {
-  getData,
-  getServiceIntoDb,
-} from "@/services/all-service/getServiceIntoDb";
+import { getServiceIntoDb } from "@/services/all-service/getServiceIntoDb";
 import SearchByData from "./SearchByData";
 
 type AllServiceDataProps = {};
 
 const AllServiceData: React.FC<AllServiceDataProps> = async () => {
-  const data = await getData();
-  console.log(data);
+  const data = await getServiceIntoDb();
   return (
     <section>
       <div>
-        {/* <SearchByData /> */}
+        <SearchByData />
         <div className="container mx-auto p-5 md:p-[50px]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {data?.data?.data?.map((item: IService) => {
@@ -38,7 +34,6 @@ const AllServiceData: React.FC<AllServiceDataProps> = async () => {
               );
             })}
           </div>
-          SearchByData
         </div>
       </div>
     </section>

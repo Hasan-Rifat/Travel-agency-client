@@ -1,27 +1,22 @@
 "use server";
 import { revalidateTag } from "next/cache";
+import { getServiceIntoDb } from "./getServiceIntoDb";
 
 export const searchService = async (e: FormData) => {
   const location = e.get("location")?.toString();
   const name = e.get("name")?.toString();
-  const category = e.get("category")?.toString();
+  const categoryId = e.get("category")?.toString();
 
   const data = {
     location,
     name,
-    category,
+    categoryId,
   };
 
-  await fetch("http://localhost:5000/api/v1/service/search", {
-    method: "get",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  console.log(data);
 
-  if (location || name || category) {
-    console.log("search");
+  if (location || name || categoryId) {
+    getServiceIntoDb(data as any);
+    revalidateTag("service");
   }
-  revalidateTag("service");
 };

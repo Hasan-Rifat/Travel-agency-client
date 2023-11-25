@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Define a type for the slice state
 interface ISearch {
-  search: Object;
+  search: string;
 }
 
 // Define the initial state using that type
 const initialState: ISearch = {
-  search: {},
+  search: "",
 };
 
 export const search = createSlice({
@@ -18,8 +18,9 @@ export const search = createSlice({
     storeSearch: (state, action) => {
       state.search = action.payload;
     },
+
     removeSearch: (state) => {
-      state.search = {};
+      state.search = "";
     },
   },
 });

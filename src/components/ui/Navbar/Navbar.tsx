@@ -24,6 +24,15 @@ const Navbar = ({
   const pathName = usePathname();
   const dispatch = useAppDispatch();
 
+  // prevent hydration error
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+  if (!hydrated) {
+    return null;
+  }
+
   const showDrawer = () => {
     setOpen(true);
   };
@@ -38,7 +47,7 @@ const Navbar = ({
   };
 
   return (
-    <header className="layout bg-[#001529]">
+    <header className="layout bg-[#fff] sticky top-0 z-50 backdrop-blur-2xl ">
       <div className="mx-auto container flex items-center  p-5">
         <div className="flex items-center gap-5 w-full justify-between">
           {hasSider && (
@@ -52,123 +61,110 @@ const Navbar = ({
             </button>
           )}
           <div>
-            <Link href="/" className="!no-underline">
-              <p
-                className={`m-0 text-white font-bold text-2xl ${
-                  hasSider && "text-center lg:text-left"
-                }`}
-              >
-                Travel <span className="text-[#ff7c5b]">Agency</span>
-              </p>
-            </Link>
+            <p
+              className={`m-0 font-bold text-2xl ${
+                hasSider && "text-center lg:text-left"
+              }`}
+            >
+              <Link href="/" className="!no-underline text-[#001337] ">
+                Travel <span className="text-[#ff7c5b]">Agency</span>{" "}
+              </Link>
+            </p>
           </div>
           <nav className="lg:block hidden">
-            <ul
-              className=" flex items-center gap-5 "
-              // disabledOverflow
-              // theme="dark"
-              // mode="horizontal"
-              // selectedKeys={[pathName]}
-            >
+            <ul className=" flex items-center gap-5 list-none ">
               {items?.map((item, i) => (
-                <li className="" key={i}>
-                  <Link className="no-underline text-white" href={item.href}>
+                <li
+                  className=" 
+
+                "
+                  key={i}
+                >
+                  <Link
+                    className="cursor-pointer no-underline text-[#001337]"
+                    href={item.href}
+                  >
                     {item.label}
                   </Link>
                 </li>
               ))}
 
               {role ? (
-                <li className="">
-                  <Button
-                    type="primary"
-                    className="mr-2"
-                    onClick={() => {
-                      role === "superAdmin"
-                        ? router.push(`/super-admin/dashboard`)
-                        : router.push(`/${role}/dashboard`);
-                    }}
+                <li className="cursor-pointer">
+                  <Link
+                    className="cursor-pointer no-underline  mr-2 px-5 py-2 text-white rounded  bg-[#ff7c5b] shadow-custom border-none"
+                    href={`${`/${role}/dashboard`}`}
                   >
                     Dashboard
-                  </Button>
-                  <Button
-                    type="primary"
-                    className=""
+                  </Link>
+
+                  <button
+                    className="mr-2 px-5 py-2 text-white rounded  bg-[#ff7c5b] shadow-custom border-none "
                     onClick={() => {
                       signOut();
                     }}
                   >
                     Log Out
-                  </Button>
+                  </button>
                 </li>
               ) : (
                 <li>
-                  <Button
-                    type="primary"
-                    onClick={() => {
-                      router.push("/login");
-                    }}
+                  <Link
+                    className="cursor-pointer no-underline mr-2 px-5 py-2 text-white rounded  bg-[#ff7c5b] shadow-custom border-none "
+                    href="/login"
                   >
                     Sign In / register
-                  </Button>
+                  </Link>
                 </li>
               )}
             </ul>
           </nav>
 
-          <Button type="primary" className="lg:hidden" onClick={showDrawer}>
+          <button className="lg:hidden" onClick={showDrawer}>
             <MenuOutlined />
-          </Button>
+          </button>
           <Drawer
             title="Menu"
             placement="right"
             onClose={onClose}
             visible={open}
           >
-            <ul
-            /* theme="light"
-              mode="vertical"
-              selectedKeys={[pathName]}
-              style={{ borderRight: 0 }} */
-            >
+            <ul className="">
               {items?.map((item, i) => (
                 <li key={i}>
-                  <Link href={item.href}>{item.label}</Link>
+                  <Link
+                    className="cursor-pointer text-[#001337]"
+                    href={item.href}
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
               {role ? (
-                <li className="">
-                  <Button
-                    type="primary"
-                    className="mr-2"
-                    onClick={() => {
-                      role === "superAdmin"
-                        ? router.push(`/super-admin/dashboard`)
-                        : router.push(`/${role}/dashboard`);
-                    }}
+                <li className="cursor-pointer">
+                  <Link
+                    className="cursor-pointer no-underline text-white mr-2 px-5 py-2  rounded  bg-[#ff7c5b] shadow-custom border-none "
+                    href={`${`/${role}/dashboard`}`}
                   >
-                    Dashboard
-                  </Button>
-                  <Button
-                    type="primary"
-                    className=""
+                    <button className="">Dashboard</button>
+                  </Link>
+                  <button
+                    className="mr-2 px-5 py-2 text-white rounded  bg-[#ff7c5b] shadow-custom border-none "
                     onClick={() => {
                       signOut();
                     }}
                   >
                     Log Out
-                  </Button>
+                  </button>
                 </li>
               ) : (
                 <li>
-                  <Button
-                    type="primary"
-                    onClick={() => {
-                      router.push("/login");
-                    }}
+                  <Link
+                    className="cursor-pointer no-underline mr-2 px-5 py-2 text-white rounded  bg-[#ff7c5b] shadow-custom border-none "
+                    href="/login"
                   >
                     Sign In / register
-                  </Button>
+                  </Link>
                 </li>
               )}
             </ul>
