@@ -33,7 +33,7 @@ const AboutTravel: React.FC<AboutTravelProps> = () => {
   ];
   return (
     <section className="bg-[#fff] py-3">
-      <div className="container mx-auto">
+      <div className="max-w-[1200px]  mx-auto px-5  md:py-[50px]">
         <div className="flex flex-col lg:flex-row items-center gap-24 p-5 md:!p-[50px]">
           <div className="w-full lg:w-1/2 ">
             <div className="flex justify-center ">

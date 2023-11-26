@@ -9,7 +9,7 @@ type FooterProps = {};
 const Footer: React.FC<FooterProps> = () => {
   return (
     <footer className="bg-[#14161c] text-white">
-      <div className="container mx-auto ">
+      <div className="max-w-[1200px]  mx-auto px-5  md:py-[50px] ">
         <div className="flex flex-col lg:flex-row  p-10 bg-base-200 text-base-content gap-10">
           <div className="w-full lg:w-1/3">
             <h4 className="text-4xl">

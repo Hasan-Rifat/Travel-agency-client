@@ -15,7 +15,7 @@ const config: Config = {
           sm: "640px", // Small screens
           md: "768px", // Medium screens
           lg: "1024px", // Large screens
-          xl: "1450px", // Extra-large screens
+          xl: "1200px", // Extra-large screens
         },
       },
     },

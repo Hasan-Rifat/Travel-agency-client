@@ -1,4 +1,4 @@
-import { Features, IABPerson, UpcomingItems } from "@/types";
+import { Features, IABPerson, IBlog, UpcomingItems } from "@/types";
 import { RiUserStarLine } from "react-icons/ri";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import { MdTravelExplore } from "react-icons/md";
@@ -15,6 +15,10 @@ import tour2 from "@/assets/tour-3.jpg";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 import team3 from "@/assets/team-3.jpg";
+
+import blog1 from "@/assets/place-1.jpg";
+import blog2 from "@/assets/blog2.jpg";
+import blog3 from "@/assets/blog3.jpg";
 
 export const allFeatures: Features[] = [
   {
@@ -191,5 +195,71 @@ export const AboutPersonCardInfo: IABPerson[] = [
     name: "Mariana Buenos",
     description: "Tour Guide",
     img: team3,
+  },
+];
+
+export const items: IBlog[] = [
+  {
+    id: "1",
+    title: "unique Including animation in your design system",
+    category: "Lifestyle",
+    date: "February 9, 2021",
+    role: "Admin",
+    description:
+      "Lorem ipsum dolor sit amet consectur adip icing sed eiusmod .",
+    img: blog1,
+  },
+  {
+    id: "2",
+    title: "Including animation in your design system",
+    category: "Travel",
+    date: "January 27, 2021",
+    role: "Admin",
+    description:
+      "Lorem ipsum dolor sit amet consectur adip icing sed eiusmod .",
+    img: blog2,
+  },
+  {
+    id: "3",
+    title: "Including animation in your design system",
+    category: "Travel",
+    date: "January 27, 2021",
+    role: "Admin",
+    description:
+      "Lorem ipsum dolor sit amet consectur adip icing sed eiusmod .",
+    img: blog3,
+  },
+];
+
+export const recentItems: IBlog[] = [
+  {
+    id: "1",
+    title: "Including animation in your design system",
+    category: "Lifestyle",
+    date: "February 9, 2021",
+    role: "Admin",
+    description:
+      "Lorem ipsum dolor sit amet consectur adip icing sed eiusmod .",
+    img: blog1,
+  },
+  {
+    id: "2",
+    title: "Including animation in your design system",
+    category: "Travel",
+    date: "January 27, 2021",
+    role: "Admin",
+    description:
+      "Lorem ipsum dolor sit amet consectur adip icing sed eiusmod .",
+    img: blog2,
+  },
+  {
+    id: "3",
+    title: "Including animation in your design system",
+    category: "Travel",
+    date: "January 27, 2021",
+    role: "Admin",
+    description:
+      "Lorem ipsum dolor sit amet consectur adip icing sed eiusmod .",
+    img: blog3,
   },
 ];

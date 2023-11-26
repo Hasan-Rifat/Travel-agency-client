@@ -14,7 +14,7 @@ const Banner: React.FC = () => (
         className="absolute left-0 top-0 z-0"
       />
       <div className="bg-[#000] opacity-60 absolute left-0 top-0 w-full h-full"></div>
-      <div className="container mx-auto z-10  overflow-hidden">
+      <div className="max-w-[1200px]  mx-auto px-5  md:py-[50px] z-10  overflow-hidden">
         <div className="flex justify-between items-center lg:gap-16  flex-col lg:flex-row p-5 md:!p-[50px] ">
           <div className="text-white">
             <h1 className="text-4xl md:text-7xl  font-bold mb-4 ">

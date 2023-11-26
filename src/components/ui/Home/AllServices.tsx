@@ -19,7 +19,7 @@ const AllServices: React.FC<AllServicesProps> = () => {
 
   return (
     <section>
-      <div className="container mx-auto p-5 md:p-[50px]">
+      <div className="max-w-[1200px]  mx-auto px-5  md:py-[50px]">
         <div className="text-center mb-14">
           <h5 className="text-[#808080] font-semibold uppercase text-lg">
             All Services

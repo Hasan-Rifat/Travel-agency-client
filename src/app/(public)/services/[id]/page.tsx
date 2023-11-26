@@ -5,7 +5,7 @@ type DetailsPageProps = {};
 const DetailsPage = () => {
   return (
     <section className="text-gray-600 body-font overflow-hidden">
-      <div className="container px-5 py-24 mx-auto">
+      <div className="max-w-[1200px]  mx-auto px-5  md:py-[50px]">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <img
             alt="ecommerce"

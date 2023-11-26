@@ -8,7 +8,7 @@ type AllFeaturesProps = {};
 const AllFeatures: React.FC<AllFeaturesProps> = () => {
   return (
     <section className="bg-[#f5f6f6] pb-3">
-      <div className="container mx-auto p-5 md:p-[50px]">
+      <div className="max-w-[1200px]  mx-auto px-5  md:py-[50px]">
         <div className="text-center mb-14">
           <h5 className="text-[#808080] font-semibold uppercase text-lg">
             TRAVIO SPECIALS

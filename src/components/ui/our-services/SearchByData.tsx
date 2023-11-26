@@ -12,7 +12,7 @@ const SearchByData: React.FC<SearchByDataProps> = async () => {
   const handelSearch = () => {};
 
   return (
-    <div className="max-w-[1200px] mx-auto p-5 md:p-[50px]">
+    <div className="max-w-[1200px]  mx-auto p-5 md:py-[50px]">
       {/* search by location, name, and category */}
       <div className=" px-8 py-12  shadow-custom bg-white rounded-lg mb-20">
         <form action={searchService} className="w-full flex  gap-5">

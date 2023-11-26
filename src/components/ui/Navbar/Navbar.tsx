@@ -48,7 +48,7 @@ const Navbar = ({
 
   return (
     <header className="layout bg-[#fff] sticky top-0 z-50 backdrop-blur-2xl ">
-      <div className="mx-auto container flex items-center  p-5">
+      <div className="mx-auto max-w-[1200px]  flex items-center  p-5">
         <div className="flex items-center gap-5 w-full justify-between">
           {hasSider && (
             <button

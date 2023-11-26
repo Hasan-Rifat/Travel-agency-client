@@ -5,7 +5,7 @@ type TestimonialsProps = {};
 const Testimonials: React.FC<TestimonialsProps> = () => {
   return (
     <section className="bg-[#f5f6f6] pb-3 overflow-hidden">
-      <div className="container mx-auto py-[50px]">
+      <div className="max-w-[1200px]  mx-auto px-5  md:py-[50px]">
         <div className="text-center mb-14">
           <h5 className="text-[#808080] font-semibold uppercase text-lg">
             REVIEW & TESTIMONIALS

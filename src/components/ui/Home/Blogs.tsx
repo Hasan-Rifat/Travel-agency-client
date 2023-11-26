@@ -43,7 +43,7 @@ const Blogs: React.FC<BlogsProps> = () => {
   ];
   return (
     <section className="bg-[#fff] pb-3 overflow-hidden">
-      <div className="container mx-auto p-5 lg:p-[50px]">
+      <div className="max-w-[1200px]  mx-auto px-5  md:py-[50px]">
         <div className=" mb-14 flex flex-col lg:flex-row justify-between items-center">
           <div className="">
             <h5 className="text-[#808080] font-semibold uppercase text-lg">

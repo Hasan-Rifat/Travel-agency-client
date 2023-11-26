@@ -13,7 +13,7 @@ const AllServiceData: React.FC<AllServiceDataProps> = async () => {
     <section>
       <div>
         <SearchByData />
-        <div className="container mx-auto p-5 md:p-[50px]">
+        <div className="max-w-[1200px]  mx-auto px-5  md:py-[50px]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {data?.data?.data?.map((item: IService) => {
               const totalRating = item?.reviews?.reduce(

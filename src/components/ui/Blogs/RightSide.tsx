@@ -1,4 +1,5 @@
 "use client";
+import { items, recentItems } from "@/constants";
 import { useAppDispatch } from "@/redux/hooks";
 import { storeSearch } from "@/redux/slice/searchSlice";
 import { IBlog } from "@/types";
@@ -6,12 +7,9 @@ import Image from "next/image";
 import React from "react";
 import { MdArrowRightAlt } from "react-icons/md";
 
-type RightSideProps = {
-  items: IBlog[];
-  recentItems: IBlog[];
-};
+type RightSideProps = {};
 
-const RightSide: React.FC<RightSideProps> = ({ items, recentItems }) => {
+const RightSide: React.FC<RightSideProps> = ({}) => {
   const dispatch = useAppDispatch();
   const handelSubmit = (e: string) => {
     dispatch(storeSearch(e));
