@@ -1,16 +1,21 @@
 import React from "react";
 
 type ButtonProps = {
-  children: string;
+  children: string | React.ReactNode;
   disabled?: boolean;
   className?: string;
+  onClick?: () => void;
 };
 
-const Button: React.FC<ButtonProps> = ({ children, disabled, className }) => {
- 
+const Button: React.FC<ButtonProps> = ({
+  children,
+  disabled,
+  className,
+  onClick,
+}) => {
   return (
     <button
-      // disabled={disabled ? true : false}
+      onClick={onClick}
       className={`
       
       ${
@@ -18,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({ children, disabled, className }) => {
           ? "bg-[#061a3a] text-white cursor-not-allowed"
           : "cursor-pointer hover:bg-[#061a3a] transition-all duration-500 ease-in bg-[#ff7c5b] text-white "
       } 
-      px-10 py-2 rounded font-semibold text-lg  border-none  shadow-2xl
+      px-10 py-2 rounded font-semibold text-lg  border-none  blog__shadow 
     
     ${className}
     

@@ -1,4 +1,7 @@
 "use server";
+
+import { IService, response } from "@/types";
+
 /* export async function getServiceIntoDb(payload?: {
   location: string;
   name: string;
@@ -57,3 +60,22 @@ export async function getServiceIntoDb(query?: {
 
   return data;
 }
+
+export const getServiceById = async (id: string): Promise<response> => {
+  const res = await fetch(
+    `https://travel-agency-service-server-kappa.vercel.app/api/v1/service/${id}`,
+    {
+      next: {
+        tags: ["service"],
+      },
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch data. Server response`);
+  }
+
+  const data = await res.json();
+
+  return data;
+};

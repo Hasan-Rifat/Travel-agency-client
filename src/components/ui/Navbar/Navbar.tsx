@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Breadcrumb, Button, Drawer, Layout, Menu, theme } from "antd";
+import { Breadcrumb, Drawer, Layout, Menu, theme } from "antd";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Title from "antd/es/typography/Title";
@@ -8,6 +8,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import { useAppDispatch } from "@/redux/hooks";
 import { showSidebarDrawer } from "@/redux/slice/sideBarSlice";
 import { getUserInfo } from "@/services/auth.service";
+import Button from "@/components/Button";
 
 const { Header, Content, Footer } = Layout;
 
@@ -47,18 +48,18 @@ const Navbar = ({
   };
 
   return (
-    <header className="layout bg-[#fff] sticky top-0 z-50 backdrop-blur-2xl ">
+    <header className="layout bg-[#fff] sticky top-0 z-50 blog__shadow ">
       <div className="mx-auto max-w-[1200px]  flex items-center  p-5">
         <div className="flex items-center gap-5 w-full justify-between">
           {hasSider && (
-            <button
+            <Button
               className="lg:hidden bg-[#ff7c5b] text-white px-4 py-2 rounded"
               onClick={() => {
                 dispatch(showSidebarDrawer());
               }}
             >
               <MenuOutlined />
-            </button>
+            </Button>
           )}
           <div>
             <p
@@ -67,7 +68,7 @@ const Navbar = ({
               }`}
             >
               <Link href="/" className="!no-underline text-[#001337] ">
-                Travel <span className="text-[#ff7c5b]">Agency</span>{" "}
+                Travel <span className="text-[#ff7c5b]">Agency</span>
               </Link>
             </p>
           </div>
@@ -91,21 +92,18 @@ const Navbar = ({
 
               {role ? (
                 <li className="cursor-pointer">
-                  <Link
-                    className="cursor-pointer no-underline  mr-2 px-5 py-2 text-white rounded  bg-[#ff7c5b] shadow-custom border-none"
-                    href={`${`/${role}/dashboard`}`}
-                  >
-                    Dashboard
+                  <Link className="" href={`${`/${role}/dashboard`}`}>
+                    <Button className="mr-2">Dashboard</Button>
                   </Link>
 
-                  <button
-                    className="mr-2 px-5 py-2 text-white rounded  bg-[#ff7c5b] shadow-custom border-none "
+                  <Button
+                    className="ml-2 "
                     onClick={() => {
                       signOut();
                     }}
                   >
                     Log Out
-                  </button>
+                  </Button>
                 </li>
               ) : (
                 <li>
@@ -120,9 +118,9 @@ const Navbar = ({
             </ul>
           </nav>
 
-          <button className="lg:hidden" onClick={showDrawer}>
+          <Button className={"lg:hidden"} onClick={showDrawer}>
             <MenuOutlined />
-          </button>
+          </Button>
           <Drawer
             title="Menu"
             placement="right"
@@ -142,20 +140,17 @@ const Navbar = ({
               ))}
               {role ? (
                 <li className="cursor-pointer">
-                  <Link
-                    className="cursor-pointer no-underline text-white mr-2 px-5 py-2  rounded  bg-[#ff7c5b] shadow-custom border-none "
-                    href={`${`/${role}/dashboard`}`}
-                  >
-                    <button className="">Dashboard</button>
+                  <Link className="" href={`${`/${role}/dashboard`}`}>
+                    <Button className="mr-2">Dashboard</Button>
                   </Link>
-                  <button
-                    className="mr-2 px-5 py-2 text-white rounded  bg-[#ff7c5b] shadow-custom border-none "
+                  <Button
+                    className={"ml-2   "}
                     onClick={() => {
                       signOut();
                     }}
                   >
                     Log Out
-                  </button>
+                  </Button>
                 </li>
               ) : (
                 <li>

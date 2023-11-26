@@ -96,3 +96,10 @@ export type IABPerson = {
   img: StaticImageData;
   description: string;
 };
+
+export type response = {
+  success: boolean;
+  statusCode: number;
+  message: string;
+  data: IService;
+};

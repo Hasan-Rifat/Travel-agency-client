@@ -13,7 +13,6 @@ type ServiceCardProps = {
 };
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ items, rating }) => {
-
   return (
     <div className="relative shadow-xl flex flex-col justify-center  rounded-2xl overflow-hidden bg-white">
       <div>
@@ -64,8 +63,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ items, rating }) => {
             <span className="text-[#808080]">{items.category.name}</span>
           </p>
           <div className="flex gap-2 items-center my-[15px] ">
-            <span className="text-[#ff7c5b]  font-bold">Availability</span>
-            <span className="text-[#808080] text-sm font-medium ">
+            <span className=" ">Availability</span>
+            <span className="text-[#15c39a]  text-sm font-medium ">
               {items.availability ? "Available" : "Not Available"}
             </span>
           </div>
