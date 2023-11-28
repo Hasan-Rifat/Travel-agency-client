@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import Slider from "react-slick";
-import Starts from "@/components/ui/service/Stars";
+import Starts from "@/components/ui/shared/Stars";
 import testimonial1 from "@/assets/testimonial-1.png";
 import testimonial2 from "@/assets/testimonial-2.png";
 import testimonial3 from "@/assets/testimonial-3.png";

@@ -1,7 +1,7 @@
 import { allFeatures } from "@/constants";
 import { Features } from "@/types";
 import React from "react";
-import AllFeaturesCard from "../service/ServiceUpComingCard";
+import AllFeaturesCard from "../shared/ServiceUpComingCard";
 
 type AllFeaturesProps = {};
 

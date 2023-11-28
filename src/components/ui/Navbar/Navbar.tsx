@@ -8,7 +8,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import { useAppDispatch } from "@/redux/hooks";
 import { showSidebarDrawer } from "@/redux/slice/sideBarSlice";
 import { getUserInfo } from "@/services/auth.service";
-import Button from "@/components/Button";
+import Button from "@/components/ui/shared/Button";
 
 const { Header, Content, Footer } = Layout;
 

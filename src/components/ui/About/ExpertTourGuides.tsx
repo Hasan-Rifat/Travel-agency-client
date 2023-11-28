@@ -1,7 +1,7 @@
 import { AboutPersonCardInfo } from "@/constants";
 import { IABPerson } from "@/types";
 
-import AboutPersonCard from "../service/AboutPersonCard";
+import AboutPersonCard from "../shared/AboutPersonCard";
 
 const ExpertTourGuides = () => {
   return (

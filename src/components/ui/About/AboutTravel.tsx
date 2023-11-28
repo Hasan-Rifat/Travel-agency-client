@@ -2,7 +2,7 @@ import Image from "next/image";
 import about from "@/assets/place-4.jpg";
 import { IconType } from "react-icons";
 import { GiCheckMark } from "react-icons/gi";
-import Button from "@/components/Button";
+import Button from "@/components/ui/shared/Button";
 import { MdSlowMotionVideo } from "react-icons/md";
 import Link from "next/link";
 

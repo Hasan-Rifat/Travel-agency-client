@@ -5,20 +5,23 @@ import Starts from "./Stars";
 import { GoClock } from "react-icons/go";
 import { GrMapLocation } from "react-icons/gr";
 import Link from "next/link";
-import Button from "@/components/Button";
+import Button from "@/components/ui/shared/Button";
 
-type ServiceCardProps = {
-  items: IService;
+type UpcomingServiceCardProps = {
+  items: UpcomingItems;
   rating: number;
 };
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ items, rating }) => {
+const UpcomingServiceCard: React.FC<UpcomingServiceCardProps> = ({
+  items,
+  rating,
+}) => {
   return (
     <div className="relative shadow-xl flex flex-col justify-center  rounded-2xl overflow-hidden bg-white">
       <div>
         <Image
           className="w-full h-full"
-          src={items.url}
+          src={items.url.src}
           width={400}
           height={400}
           alt="upcoming service"
@@ -28,7 +31,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ items, rating }) => {
         <div className="flex items-center gap-5">
           <Starts value={rating} />
           <p className="text-[#808080] text-sm font-medium ">
-            {items?.reviews?.length > 0 ? items?.reviews?.length : 0} Review
+            {items?.reviews?.length > 0 ? items?.reviews?.length : 0} Review up
           </p>
         </div>
         <div className="">
@@ -63,17 +66,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ items, rating }) => {
             <span className="text-[#808080]">{items.category.name}</span>
           </p>
           <div className="flex gap-2 items-center my-[15px] ">
-            <span className=" ">Availability</span>
-            <span className="text-[#15c39a]  text-sm font-medium ">
+            <span className="text-[#ff7c5b]  font-bold">Availability</span>
+            <span className="text-[#808080] text-sm font-medium ">
               {items.availability ? "Available" : "Not Available"}
             </span>
           </div>
           {items.availability ? (
-            <Link href={`/services/${items.id}`}>
+            <Link href={`/service/${items.id}`}>
               <Button className="w-full">Book Now</Button>
             </Link>
           ) : (
-            <Button className="w-full" disabled>
+            <Button className="w-full" disabled={true}>
               Book Now
             </Button>
           )}
@@ -82,4 +85,4 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ items, rating }) => {
     </div>
   );
 };
-export default ServiceCard;
+export default UpcomingServiceCard;

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import BlogCard from "../service/BlogCard";
+import BlogCard from "../shared/BlogCard";
 import { IBlog } from "@/types";
 
 import RightSide from "./RightSide";

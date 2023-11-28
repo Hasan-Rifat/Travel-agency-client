@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/ui/shared/Button";
 import RightSide from "@/components/ui/Blogs/RightSide";
 import { items } from "@/constants";
 import { IBlog } from "@/types";

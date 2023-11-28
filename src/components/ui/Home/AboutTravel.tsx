@@ -3,7 +3,7 @@ import about from "@/assets/about-1.jpg";
 import { IconType } from "react-icons";
 import { GiCheckMark } from "react-icons/gi";
 import about2 from "@/assets/about-2.jpg";
-import Button from "@/components/Button";
+import Button from "@/components/ui/shared/Button";
 import { MdSlowMotionVideo } from "react-icons/md";
 import Link from "next/link";
 

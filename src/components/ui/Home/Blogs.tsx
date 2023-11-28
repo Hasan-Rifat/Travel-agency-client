@@ -1,6 +1,6 @@
-import Button from "@/components/Button";
+import Button from "@/components/ui/shared/Button";
 import React from "react";
-import BlogCard from "../service/BlogCard";
+import BlogCard from "../shared/BlogCard";
 import { IBlog } from "@/types";
 import blog1 from "@/assets/place-1.jpg";
 import blog2 from "@/assets/blog2.jpg";

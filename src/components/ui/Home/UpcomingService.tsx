@@ -1,8 +1,8 @@
 import { upcomingService } from "@/constants";
 import { IService, UpcomingItems } from "@/types";
 import React from "react";
-import ServiceCard from "../service/ServiceCard";
-import UpcomingServiceCard from "../service/UpcomingServiceCard";
+import ServiceCard from "../shared/ServiceCard";
+import UpcomingServiceCard from "../shared/UpcomingServiceCard";
 
 type UpcomingServiceProps = {};
 

@@ -1,5 +1,5 @@
 import React from "react";
-import ServiceCard from "../service/ServiceCard";
+import ServiceCard from "../shared/ServiceCard";
 import { IService } from "@/types";
 import { FaSearch } from "react-icons/fa";
 import { getServiceIntoDb } from "@/services/all-service/getServiceIntoDb";

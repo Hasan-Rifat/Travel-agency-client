@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/ui/shared/Button";
 import { IBlog } from "@/types";
 import Image from "next/image";
 import Link from "next/link";

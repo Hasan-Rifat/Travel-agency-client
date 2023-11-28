@@ -2,8 +2,8 @@
 import { useGetAllServiceQuery } from "@/redux/api/service/serviceApiSlice";
 import { IService } from "@/types";
 import React, { useState } from "react";
-import Starts from "../service/Stars";
-import ServiceCard from "../service/ServiceCard";
+import Starts from "../shared/Stars";
+import ServiceCard from "../shared/ServiceCard";
 
 type AllServicesProps = {};
 
