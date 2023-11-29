@@ -3,12 +3,14 @@ import { apiSlice } from "./api/apiSlice";
 import sideBarSlice from "./slice/sideBarSlice";
 import userSlice from "./api/user/userSlice";
 import searchSlice from "./slice/searchSlice";
+import orderSlice from "./slice/orderSlice";
 
 export const store = configureStore({
   reducer: {
     sidebar: sideBarSlice,
     user: userSlice,
     search: searchSlice,
+    order: orderSlice,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>

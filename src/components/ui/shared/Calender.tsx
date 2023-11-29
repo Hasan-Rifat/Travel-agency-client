@@ -5,8 +5,11 @@ import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { DatePicker, Space } from "antd";
-import { IService } from "@/types";
+import { IOrder, IService } from "@/types";
 import { useAppDispatch } from "@/redux/hooks";
+import { getUserInfo } from "@/services/auth.service";
+import { bookOrder } from "@/redux/slice/orderSlice";
+import { useRouter } from "next/navigation";
 
 dayjs.extend(customParseFormat);
 
@@ -21,32 +24,46 @@ interface IProps {
 
 const Calender: React.FC<IProps> = ({ data }) => {
   const dispatch = useAppDispatch();
-  const [hydrated, setHydrated] = useState(false);
-  const [count, setCount] = useState(1);
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-  if (!hydrated) {
-    return null;
-  }
-
+  const router = useRouter();
+  const { userId } = getUserInfo() as any;
+  const [count, setCount] = useState<number>(1);
+  const [start, setStart] = useState<string>("");
+  const [end, setEnd] = useState<string>("");
+  const [days, setDays] = useState<number>(0);
+  const [specialRequests, setSpecialRequests] = useState<string>("");
   const onChange = (
     value: DatePickerProps["value"] | RangePickerProps["value"],
     dateString: [string, string] | string
-  ) => {
-    console.log("Selected Time: ", value);
-    console.log("Formatted Selected Time: ", dateString);
+  ): void => {
+    // console.log("Selected Time: ", value);
+    // console.log("Formatted Selected Time: ", dateString);
+    setDays(0);
+    if (dateString[0] && dateString[1]) {
+      const startMoment = dayjs(dateString[0]);
+      const endMoment = dayjs(dateString[1]);
+      const durationInDays = endMoment.diff(startMoment, "day") + 1; // Adding 1 to include both start and end days
+      setDays(durationInDays);
+    }
+
+    setStart(dateString[0]);
+    setEnd(dateString[1]);
   };
 
-  const onOk = (
-    value: DatePickerProps["value"] | RangePickerProps["value"]
-  ) => {
-    console.log("onOk: ", value);
-  };
+  const bookOrderData = (data: IService): void => {
+    const payload: IOrder = {
+      serviceId: data.id,
+      price: data.price.toString(),
+      start: start,
+      end: end,
+      travelers: count,
+      specialRequests: specialRequests,
+      userId: userId,
+      status: "pending",
+      totalDays: days,
+    };
 
-  const bookOrder = (data: IProps): void => {
-    // const date;
-    // dispatch(bookOrder(data));
+    dispatch(bookOrder(payload));
+    router.push(`/checkout/`);
   };
 
   return (
@@ -98,7 +115,7 @@ const Calender: React.FC<IProps> = ({ data }) => {
             </label>
             <div className="relative flex items-center">
               <button
-                onClick={() => setCount(count - 1)}
+                onClick={() => count > 1 && setCount(count - 1)}
                 type="button"
                 id="decrement-button"
                 data-input-counter-decrement="counter-input"
@@ -160,17 +177,34 @@ const Calender: React.FC<IProps> = ({ data }) => {
         <div>
           <RangePicker
             onChange={onChange}
-            onOk={onOk}
-            popupClassName="text-black"
+            popupClassName="text-black w-full"
             format={desiredDateFormat}
           />
+          <div>
+            <label
+              htmlFor="message"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              write Your special Requests
+            </label>
+            <textarea
+              id="message"
+              onChange={(e) => setSpecialRequests(e.target.value)}
+              rows={4}
+              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-[#ff7c5b] focus:ring-[#ff7c5b] focus:border-[#ff7c5b] "
+              placeholder=" write Your special Requests here..."
+              defaultValue={""}
+            />
+          </div>
         </div>
         <div className="flex items-center gap-2 flex-row lg:flex-col justify-between lg:justify-normal">
           <span className="title-font font-semibold text-2xl text-[#001337]">
-            ${data?.price}
+            ${+data?.price + count * 10 + days * 10}
           </span>
           <div>
-            <Button className="">Book Now</Button>
+            <Button onClick={() => bookOrderData(data)} className="">
+              Book Now
+            </Button>
           </div>
         </div>
       </div>

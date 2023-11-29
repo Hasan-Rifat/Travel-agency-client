@@ -1,5 +1,5 @@
-import TitleBar from "@/components/TitleBar";
 import AllServiceData from "@/components/ui/our-services/AllServiceData";
+import TitleBar from "@/components/ui/shared/TitleBar";
 import React from "react";
 
 type pageProps = {};

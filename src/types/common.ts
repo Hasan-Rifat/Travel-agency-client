@@ -103,3 +103,15 @@ export type response = {
   message: string;
   data: IService;
 };
+
+export interface IOrder {
+  serviceId: string;
+  userId: string;
+  status: string;
+  start: string;
+  end: string;
+  travelers: number;
+  specialRequests: string;
+  price: string;
+  totalDays: number;
+}
