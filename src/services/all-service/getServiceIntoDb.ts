@@ -62,11 +62,14 @@ export async function getServiceIntoDb(query?: {
 }
 
 export const getServiceById = async (id: string): Promise<response> => {
-  const res = await fetch(`http://localhost:5000/api/v1/service/${id}`, {
-    next: {
-      tags: ["service"],
-    },
-  });
+  const res = await fetch(
+    `https://travel-agency-service-server-kappa.vercel.app/api/v1/service/${id}`,
+    {
+      next: {
+        tags: ["service"],
+      },
+    }
+  );
 
   if (!res.ok) {
     throw new Error(`Failed to fetch data. Server response`);

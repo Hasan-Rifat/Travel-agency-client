@@ -19,7 +19,7 @@ export default function PaymentForm() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/v1/payment/create-payment",
+          "https://travel-agency-service-server-kappa.vercel.app/api/v1/payment/create-payment",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
