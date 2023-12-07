@@ -9,6 +9,7 @@ interface OrderState {
 
 // Define the initial state using that type
 const storedOrder = getFromLocalStorage("orderKey");
+
 const initialState: OrderState = {
   order: storedOrder
     ? JSON.parse(storedOrder)
@@ -49,7 +50,10 @@ export const order = createSlice({
         totalDays: 0,
         id: "",
       };
-      localStorage.removeItem("orderKey");
+
+      if (typeof location !== "undefined") {
+        localStorage.removeItem("orderKey");
+      }
     },
   },
 });

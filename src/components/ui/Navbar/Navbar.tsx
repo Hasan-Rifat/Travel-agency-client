@@ -43,7 +43,9 @@ const Navbar = ({
   };
 
   const signOut = () => {
-    localStorage.clear();
+    if (typeof location !== 'undefined') {
+      localStorage.clear();
+    }
     router.push("/login");
   };
 
