@@ -6,13 +6,11 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import { StripePaymentElementOptions } from "@stripe/stripe-js";
-import Button from "../shared/Button";
-import { useConfirmOrderMutation } from "@/redux/api/booking/bookingApiSlice";
-import { IBook } from "@/types";
-import { useAppSelector } from "@/redux/hooks";
-import { message as messageSate } from "antd";
-import { getFromLocalStorage } from "@/utils/local-storage";
 export default function CheckoutForm() {
+  const url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://travel-agency-client-phi.vercel.app";
   const stripe = useStripe();
   const elements = useElements();
 
@@ -75,7 +73,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "https://travel-agency-client-phi.vercel.app/thank-you",
+        return_url: `${url}/thank-you`,
       },
     });
 

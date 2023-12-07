@@ -6,7 +6,6 @@ import { removeOrder } from "@/redux/slice/orderSlice";
 import { IBook } from "@/types";
 import { message } from "antd";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 type ThankYouProps = {
@@ -21,13 +20,16 @@ const ThankYou: React.FC<ThankYouProps> = ({ searchParams }) => {
   const order = useAppSelector((state) => state.order.order);
   const [
     confirmOrder,
-    { data: confirmOrderData, isLoading: confirmOderLoading, error, isSuccess },
+    {
+      data: confirmOrderData,
+      isLoading: confirmOderLoading,
+      isSuccess,
+      isError,
+    },
   ] = useConfirmOrderMutation();
   const dispatch = useAppDispatch();
 
-  const router = useRouter();
-
-  useEffect(() => {
+  /* useEffect(() => {
     const confirmOrderHandler = async () => {
       const orderData: IBook = {
         serviceId: order.serviceId,
@@ -65,24 +67,67 @@ const ThankYou: React.FC<ThankYouProps> = ({ searchParams }) => {
     order.travelers,
     order.userId,
     searchParams.payment_intent,
-  ]);
+  ]); */
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (confirmOderLoading) {
       message.loading("Loading...");
-    } else if (isSuccess) {
+    }
+    if (isSuccess) {
       message.success("Order confirm successfully");
       // Navigate to checkout page after success
-    } else if (error) {
-      message.error(error as string);
     }
-  }, [isSuccess, error, confirmOderLoading]);
+  }, [isSuccess, confirmOderLoading]); */
 
   useEffect(() => {
-    if (order.id === "") {
-      router.push("/");
+    const confirmOrderHandler = async () => {
+      const orderData: IBook = {
+        serviceId: order.serviceId,
+        userId: order.userId,
+        status: "accept",
+        start: order.start,
+        end: order.end,
+        travelers: order.travelers,
+        specialRequests: order.specialRequests,
+        price: order.price,
+        totalDays: order.totalDays,
+        id: order.id as string,
+        paymentId: searchParams.payment_intent,
+      };
+
+      // create order in database
+      await confirmOrder(orderData);
+
+      if (isSuccess) {
+        dispatch(removeOrder());
+      }
+    };
+
+    if (confirmOderLoading) {
+      message.loading("Loading...");
     }
-  }, [order.id, router]);
+
+    if (isSuccess) {
+      confirmOrderHandler();
+      message.success("Order confirm successfully");
+      // Navigate to checkout page after success
+    }
+  }, [
+    confirmOrder,
+    dispatch,
+    isSuccess,
+    confirmOderLoading,
+    order.end,
+    order.id,
+    order.price,
+    order.serviceId,
+    order.specialRequests,
+    order.start,
+    order.totalDays,
+    order.travelers,
+    order.userId,
+    searchParams.payment_intent,
+  ]);
 
   return (
     <div className="bg-gray-100 h-screen">

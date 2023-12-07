@@ -95,11 +95,11 @@ const Calender: React.FC<IProps> = ({ data }) => {
   const bookOrderData = async (data: IService): Promise<void> => {
     const payload: IOrder = {
       serviceId: data.id,
-      price: data.price.toString(),
+      price: String(+data.price + count * 10 + days * 10),
       start: start,
       end: end,
       travelers: count,
-      specialRequests: specialRequests,
+      specialRequests: specialRequests ? specialRequests : "",
       userId: userId,
       status: "pending",
       totalDays: days,

@@ -4,6 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import Loading from "@/app/loading";
+import { useAppSelector } from "@/redux/hooks";
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -15,6 +16,7 @@ const stripePromise = loadStripe(
 export default function PaymentForm() {
   const [clientSecret, setClientSecret] = useState<string>("");
   const [loading, setLoading] = useState(true);
+  const { order } = useAppSelector((state) => state.order);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,7 +25,7 @@ export default function PaymentForm() {
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ amount: 1000 }),
+            body: JSON.stringify({ amount: order.price }),
           }
         );
 
@@ -37,9 +39,7 @@ export default function PaymentForm() {
     };
 
     fetchData();
-  }, []);
-
-  console.log(clientSecret);
+  }, [order.price]);
 
   const options = {
     clientSecret,

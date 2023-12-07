@@ -1,7 +1,5 @@
 "use client";
 import { useAppSelector } from "@/redux/hooks";
-import { IOrder } from "@/types";
-import { getFromLocalStorage } from "@/utils/local-storage";
 import Link from "next/link";
 import React, { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
@@ -11,12 +9,6 @@ type CheckoutProps = {};
 
 const Checkout: React.FC<CheckoutProps> = () => {
   const { order } = useAppSelector((state) => state.order);
-
-  const [savedValues, setSavedValues] = useState<IOrder | string>(
-    !!getFromLocalStorage("orderKey")
-      ? JSON.parse(getFromLocalStorage("orderKey") as string)
-      : ""
-  );
 
   const date = (date: string) => {
     const newDate = new Date(date);
