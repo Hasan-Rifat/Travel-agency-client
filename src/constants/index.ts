@@ -263,3 +263,100 @@ export const recentItems: IBlog[] = [
     img: blog3,
   },
 ];
+
+// nav item data
+export const PublicHeaderItem = [
+  { key: "0", href: "/", label: "Home" },
+  {
+    key: "1",
+    href: "/about-us",
+    label: "About us",
+  },
+  {
+    key: "2",
+    href: "/services",
+    label: "Service",
+  },
+  {
+    key: "3",
+    href: "/blogs",
+    label: "Blogs",
+  },
+  {
+    key: "4",
+    href: "/contact-us",
+    label: "Contact Us",
+  },
+];
+
+export const AdminHeaderItem = [
+  { key: "0", href: "/", label: "Home" },
+  {
+    key: "1",
+    href: "/about-us",
+    label: "About us",
+  },
+  {
+    key: "2",
+    href: "/services",
+    label: "Service",
+  },
+  {
+    key: "3",
+    href: "/blogs",
+    label: "Blogs",
+  },
+  {
+    key: "4",
+    href: "/contact-us",
+    label: "Contact Us",
+  },
+];
+
+export const SupperAdminHeaderItem = [
+  { key: "0", href: "/", label: "Home" },
+  {
+    key: "1",
+    href: "/about-us",
+    label: "About us",
+  },
+  {
+    key: "2",
+    href: "/services",
+    label: "Service",
+  },
+  {
+    key: "3",
+    href: "/blogs",
+    label: "Blogs",
+  },
+  {
+    key: "4",
+    href: "/contact-us",
+    label: "Contact Us",
+  },
+];
+
+export const UserHeaderItem = [
+  { key: "0", href: "/", label: "Home" },
+  {
+    key: "1",
+    href: "/about-us",
+    label: "About us",
+  },
+  {
+    key: "2",
+    href: "/services",
+    label: "Service",
+  },
+  {
+    key: "3",
+    href: "/blogs",
+    label: "Blogs",
+  },
+  {
+    key: "4",
+    href: "/contact-us",
+    label: "Contact Us",
+  },
+];

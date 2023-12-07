@@ -14,7 +14,6 @@ type pageProps = {
 };
 
 const page: React.FC<pageProps> = ({ params }) => {
-  console.log(params.id);
 
   const item: IBlog[] = items.filter((item) => item.id === params.id);
   return (

@@ -13,8 +13,6 @@ export const searchService = async (e: FormData) => {
     categoryId,
   };
 
-  console.log(data);
-
   if (location || name || categoryId) {
     getServiceIntoDb(data as any);
     revalidateTag("service");

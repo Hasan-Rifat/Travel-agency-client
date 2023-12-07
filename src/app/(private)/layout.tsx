@@ -1,16 +1,19 @@
-"use client";
+import Navbar from "@/components/ui/Navbar/Navbar";
+import PrivateAuth from "@/components/ui/shared/PrivateAuth";
+import { PublicHeaderItem } from "@/constants";
 import { getUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
-  const { role } = getUserInfo() as any;
-  const router = useRouter();
-  if (!role) {
-    router.push("/login");
-  }
-
-  return <>{children}</>;
+const layout = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <main>
+      <PrivateAuth>
+        <Navbar items={PublicHeaderItem} hasSider />
+        {children}
+      </PrivateAuth>
+    </main>
+  );
 };
 
-export default Layout;
+export default layout;

@@ -4,12 +4,15 @@ import Button from "@/components/ui/shared/Button";
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { DatePicker, Space } from "antd";
+import { DatePicker, Space, message } from "antd";
 import { IOrder, IService } from "@/types";
-import { useAppDispatch } from "@/redux/hooks";
 import { getUserInfo } from "@/services/auth.service";
 import { bookOrder } from "@/redux/slice/orderSlice";
 import { useRouter } from "next/navigation";
+import { getFromLocalStorage, setToLocalStorage } from "@/utils/local-storage";
+import { useAppDispatch } from "@/redux/hooks";
+import { useCreateOrderMutation } from "@/redux/api/booking/bookingApiSlice";
+import Link from "next/link";
 
 dayjs.extend(customParseFormat);
 
@@ -23,14 +26,54 @@ interface IProps {
 }
 
 const Calender: React.FC<IProps> = ({ data }) => {
-  const dispatch = useAppDispatch();
+  const [createOrder, { isLoading, data: newOrderData, error, isSuccess }] =
+    useCreateOrderMutation();
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const { userId } = getUserInfo() as any;
   const [count, setCount] = useState<number>(1);
   const [start, setStart] = useState<string>("");
   const [end, setEnd] = useState<string>("");
   const [days, setDays] = useState<number>(0);
   const [specialRequests, setSpecialRequests] = useState<string>("");
+  const [orderData, setOrderData] = useState<IOrder>({
+    serviceId: "",
+    price: "",
+    start: "",
+    end: "",
+    travelers: 0,
+    specialRequests: "",
+    userId: "",
+    status: "",
+    totalDays: 0,
+  });
+
+  useEffect(() => {
+    if (isLoading) {
+      message.loading("Loading...");
+    } else if (isSuccess) {
+      message.success("Order created successfully");
+      // Navigate to checkout page after success
+      dispatch(
+        bookOrder({
+          end: newOrderData.data.booking.end,
+          id: newOrderData.data.booking.id,
+          price: newOrderData.data.booking.price,
+          serviceId: newOrderData.data.booking.serviceId,
+          specialRequests: newOrderData.data.booking.specialRequests,
+          start: newOrderData.data.booking.start,
+          status: newOrderData.data.booking.status,
+          totalDays: newOrderData.data.booking.totalDays,
+          travelers: newOrderData.data.booking.travelers,
+          userId: newOrderData.data.booking.userId,
+        })
+      );
+      router.push(`/checkout`);
+    } else if (error) {
+      message.error(error as string);
+    }
+  }, [isLoading, isSuccess, error, router, dispatch, newOrderData]);
+
   const onChange = (
     value: DatePickerProps["value"] | RangePickerProps["value"],
     dateString: [string, string] | string
@@ -49,7 +92,7 @@ const Calender: React.FC<IProps> = ({ data }) => {
     setEnd(dateString[1]);
   };
 
-  const bookOrderData = (data: IService): void => {
+  const bookOrderData = async (data: IService): Promise<void> => {
     const payload: IOrder = {
       serviceId: data.id,
       price: data.price.toString(),
@@ -62,8 +105,15 @@ const Calender: React.FC<IProps> = ({ data }) => {
       totalDays: days,
     };
 
-    dispatch(bookOrder(payload));
-    router.push(`/checkout/`);
+    try {
+      // Make the API call
+      await createOrder(payload).unwrap();
+
+      // If successful, dispatch action and set order data
+    } catch (error) {
+      console.log(error, "error");
+      // Handle any errors and let the useEffect display the error message
+    }
   };
 
   return (
@@ -181,17 +231,11 @@ const Calender: React.FC<IProps> = ({ data }) => {
             format={desiredDateFormat}
           />
           <div>
-            <label
-              htmlFor="message"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              write Your special Requests
-            </label>
             <textarea
               id="message"
               onChange={(e) => setSpecialRequests(e.target.value)}
               rows={4}
-              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-[#ff7c5b] focus:ring-[#ff7c5b] focus:border-[#ff7c5b] "
+              className="mt-5 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-[#ff7c5b] focus:ring-[#ff7c5b] focus:border-[#ff7c5b] "
               placeholder=" write Your special Requests here..."
               defaultValue={""}
             />

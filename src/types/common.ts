@@ -105,6 +105,21 @@ export type response = {
 };
 
 export interface IOrder {
+  id?: string;
+  serviceId: string;
+  userId: string;
+  status: string;
+  start: string;
+  end: string;
+  travelers: number;
+  specialRequests: string;
+  price: string;
+  totalDays: number;
+}
+
+export interface IBook {
+  id: string;
+  paymentId: string;
   serviceId: string;
   userId: string;
   status: string;

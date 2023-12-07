@@ -1,6 +1,7 @@
 import Loading from "@/app/loading";
 import Button from "@/components/ui/shared/Button";
 import Calender from "@/components/ui/shared/Calender";
+import TitleBar from "@/components/ui/shared/TitleBar";
 import { getServiceById } from "@/services/all-service/getServiceIntoDb";
 import { IService, response } from "@/types";
 import Image from "next/image";
@@ -20,7 +21,7 @@ const DetailsPage = async ({
   }
 
   return (
-    <section className="text-gray-600 body-font overflow-hidden">
+    <section className="overflow-hidden">
       <div className="max-w-[1200px]  mx-auto px-5 py-5  md:py-[70px]">
         <div className="flex items-center flex-col lg:flex-row gap-10">
           <div className=" w-full   ">

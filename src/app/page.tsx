@@ -7,35 +7,12 @@ import AboutTravel from "@/components/ui/Home/AboutTravel";
 import Testimonials from "@/components/ui/Home/Testimonials";
 import Blogs from "@/components/ui/Home/Blogs";
 import Footer from "@/components/ui/Footer/Footer";
+import { PublicHeaderItem } from "@/constants";
 
 export default function Home() {
-  const items = [
-    { key: "0", href: "/", label: "Home" },
-    {
-      key: "1",
-      href: "/about-us",
-      label: "About us",
-    },
-    {
-      key: "2",
-      href: "/services",
-      label: "Service",
-    },
-    {
-      key: "3",
-      href: "/blogs",
-      label: "Blogs",
-    },
-    {
-      key: "4",
-      href: "/contact-us",
-      label: "Contact Us",
-    },
-  ];
-
   return (
     <>
-      <Navbar items={items} />
+      <Navbar items={PublicHeaderItem} />
       <Banner />
       <AllFeatures />
       <AboutTravel />

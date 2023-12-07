@@ -1,4 +1,4 @@
-import TitleBar from "@/components/TitleBar";
+import TitleBar from "@/components/ui/shared/TitleBar";
 import Blogs from "@/components/ui/Blogs/Blogs";
 
 import React from "react";
