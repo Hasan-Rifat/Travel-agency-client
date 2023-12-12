@@ -1,4 +1,4 @@
-import AllServiceData from "@/components/ui/our-services/AllServiceData";
+import AllServiceData from "@/components/ui/servies/AllServiceData";
 import TitleBar from "@/components/ui/shared/TitleBar";
 import React from "react";
 
