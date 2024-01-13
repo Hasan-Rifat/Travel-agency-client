@@ -130,3 +130,9 @@ export interface IBook {
   price: string;
   totalDays: number;
 }
+
+export interface IMenu {
+  id: string;
+  title: string;
+  path: string;
+}
